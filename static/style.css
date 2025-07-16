@@ -1,0 +1,230 @@
+body {
+    background-image: url('csbackground6_recolored.png'); /* relative to the CSS file itself */
+    background-size: cover;
+    background-size: 60%;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+  .dots-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* space between dots */
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .dots-loader div {
+    width: 12px;
+    height: 12px;
+    background-color: #2dd959;
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  
+  .dots-loader div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .dots-loader div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes bounce {
+    0%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-12px);
+    }
+  }
+  
+  .button-row {
+    display: none; 
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20px; /* spacing between buttons */
+}
+
+.button-row.show {
+  display: flex;
+}
+
+.custom-btn {
+   /* initially hidden */
+   font-family: 'Share Tech Mono', monospace;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 40px;
+
+    background-color: #2dd959;
+    color: black;
+    border: 2px solid #2dd959;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+
+.custom-btn:hover {
+  color: #2dd959;
+    background-color: black;
+    border-color: #2dd959;
+}
+
+  
+  
+.back-arrow {
+  font-family: 'Share Tech Mono', monospace;
+  display: none; /* hidden at first */
+  position: absolute;
+  text-align: center;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height: 60px;
+  font-size: 50px;
+  background-color: #2dd959;
+  color: black;
+  border: 2px solid #2dd959;
+  cursor: pointer;
+ 
+}
+
+.back-arrow:hover {
+  color: #2dd959;
+    background-color: black;
+    border-color: #2dd959;
+}
+
+#case-header {
+  font-family: 'Orbitron', sans-serif;
+  color: #2dd959;
+  display: none;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#case-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  color: #2dd959;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+#begin-case-btn {
+  font-family: 'Share Tech Mono', monospace;
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2dd959;
+  color: black;
+  border: 2px solid #2dd959;
+  padding: 15px 30px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+#begin-case-btn:hover {
+  background-color: black;
+  color: #2dd959;
+  border-color: #2dd959;
+}
+
+#case-description,
+#case-objective,
+#case-duration,
+#case-taught-by,
+#case-format,
+#case-completion,
+#case-question-overview,
+#case-key-topics,
+#case-questions,
+#case-prerequisite,
+#case-pdf {
+  display: none;
+  font-family: 'Share Tech Mono', monospace;
+  color: #2dd959;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.terminal-button {
+  background-color: #2dd959;
+  color: black;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #2dd959;
+}
+
+.terminal-button:hover {
+  background-color: black;
+  color: #2dd959;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+#case-description,
+#case-objective,
+#case-duration,
+#case-taught-by,
+#case-format,
+#case-completion,
+#case-question-overview,
+#case-key-topics,
+#case-questions,
+#case-prerequisite,
+#case-pdf a {
+  white-space: pre;
+  overflow-x: hidden;
+  
+}
+
+#case-pdf:hover {
+  cursor: pointer;
+}
+
+#case-key-topics ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#case-key-topics li {
+  margin-bottom: 0.5rem; /* adds vertical spacing */
+  line-height: 1.4;
+}
+
+
+
+#case-objective,
+#case-description {
+  white-space: normal;     /* Allow line wrapping */
+  word-wrap: break-word;   /* Force break long words if needed */
+  line-height: 1.8; /* 1.6 × font-size = more readable spacing */
+}
