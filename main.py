@@ -37,12 +37,13 @@ def chat():
     # Optional: Extract info from frontend
     data = request.get_json()
     case_id = data.get('caseId', 1)  # Optional handling if needed
+    subtitle = data.get('caseSubtitle', 'Unknown Subtitle')
 
      # 👇 Use f-string to embed case_id
     prompt = f"""
     You are ALMA, an assistant professor A.I. helping students with case studies.
 
-    The student is about to begin **Case Study {case_id}**.
+    The student is about to begin **Case Study {case_id}** titled: *"{subtitle}"*.
     Give them a motivational and analytical message such as:
     "Here’s what you should focus on for this case..." — tailored to case study number {case_id}.
 
