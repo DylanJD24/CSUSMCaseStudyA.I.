@@ -1,5 +1,6 @@
 const caseStudyData = [
     {
+        id: "1",
         title: "CASE STUDY 1",
         subtitle: "Healthy Hiring: Ecommerce Help Wanted",
         description: "Join a systems analysis team at Marathon Vitamin Shops as they navigate the challenge of hiring a new team member for an ecommerce initiative. Weigh technical skills, personality traits, and business knowledge to recommend the ideal candidate.",
@@ -74,6 +75,7 @@ const caseStudyData = [
         pdfUrl: "pdfs/case3.pdf"
     },
     {
+        id: "5",
         title: "CASE STUDY 5",
         subtitle: "Clearing the Way for Customer Links",
         description: "Join the World’s Trend web development team as they strategize how to present clearance merchandise online. Navigate decisions around how much information to display, the user flow, and the use of customer prototypes.",
@@ -111,6 +113,45 @@ const caseStudyData = [
 
 ];
 
+const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
+
+function caseStudy1() {
+  const caseData = caseStudyData.find(cs => cs.id === "1");
+  if (caseData) {
+    console.log("Case Study 1 triggered");
+    updateCaseHeader(caseData.title, caseData);
+  }
+}
+
+function caseStudy2() {
+    console.log("Case Study 2 triggered");
+    updateCaseHeader("CASE STUDY 2");
+}
+
+function caseStudy3() {
+    console.log("Case Study 3 triggered");
+    updateCaseHeader("CASE STUDY 3");
+}
+
+function caseStudy4() {
+    console.log("Case Study 4 triggered");
+    updateCaseHeader("CASE STUDY 4");
+}
+
+function caseStudy5() {
+    const caseData = caseStudyData.find(cs => cs.id === "5");
+  if (caseData) {
+    console.log("Case Study 5 triggered");
+    updateCaseHeader(caseData.title, caseData);
+  }
+    
+}
+
+function caseStudy6() {
+    console.log("Case Study 6 triggered");
+    updateCaseHeader("CASE STUDY 6");
+}
+
 function wrapTextByWords(text, wordsPerLine = 20) {
     const words = text.split(' ');
     let lines = [];
@@ -118,19 +159,63 @@ function wrapTextByWords(text, wordsPerLine = 20) {
       lines.push(words.slice(i, i + wordsPerLine).join(' '));
     }
     return lines.join('<br>');
-  }
+}
+
+
+
+function typeText(element, fullText, delay = 10) {
+    return new Promise(resolve => {
+      element.innerHTML = '';
+      element.style.display = 'block';
+  
+      let i = 0;
+  
+      const interval = setInterval(() => {
+        element.innerHTML += fullText.charAt(i);
+        i++;
+        if (i >= fullText.length) {
+          clearInterval(interval);
+          resolve(); // ✅ done typing
+        }
+      }, delay);
+    });
+}
+  
+
+function setupChat() {
+    // ✅ REVERT visual changes here
+    document.body.style.backgroundImage = 'none';
+  
+    const dotsLoader = document.querySelector('.dots-loader');
+    const backArrow = document.querySelector('.back-arrow');
+
+    dotsLoader.style.display = 'none';
+
+    
+
+    backArrow.style.display = 'block';
+    
+}  
 
   
-function updateCaseHeader(text) {
+function updateCaseHeader(text, caseData) {
     const header = document.getElementById('case-header');
     if (header) {
         header.textContent = text;
         header.style.display = 'block';
     }
 
+    // ✅ Store globally if needed in other places like beginBtn click
+  window.activeCaseData = caseData;
+
     const beginBtn = document.getElementById('begin-case-btn');
     const dotsLoader = document.querySelector('.dots-loader');
     const backArrow = document.querySelector('.back-arrow');
+
+
+  // Example: log or use the caseData.subtitle
+  console.log("Subtitle:", caseData.subtitle);
+
 
 
     if (beginBtn) {
@@ -138,6 +223,14 @@ function updateCaseHeader(text) {
 
         // ✅ attach listener (safe to add multiple times because it's idempotent)
         beginBtn.onclick = () => {
+
+            const caseInfo = window.activeCaseData;
+  if (caseInfo) {
+    console.log(caseInfo);
+    
+  }
+
+  console.log("Begin clicked for case:", caseInfo.title);
             document.body.style.backgroundImage = "url('../static/csbackground6_recolored.png')";
             
             if (dotsLoader) {
@@ -146,7 +239,7 @@ function updateCaseHeader(text) {
 
             beginBtn.style.display = 'none';
             backArrow.style.display = 'none';
-            header.style.display = 'none';
+            //header.style.display = 'none';
 
             const subtitle = document.getElementById('case-subtitle');
             if (subtitle) {
@@ -170,39 +263,39 @@ function updateCaseHeader(text) {
         }
 
         const taught = document.getElementById('case-taught-by');
-if (taught) {
-    taught.style.display = 'none';
-}
+        if (taught) {
+         taught.style.display = 'none';
+        }
 
-const format = document.getElementById('case-format');
-if (format) {
-    format.style.display = 'none';
-}
+        const format = document.getElementById('case-format');
+        if (format) {
+             format.style.display = 'none';
+        }
 
-const completion = document.getElementById('case-completion');
-if (completion) {
-    completion.style.display = 'none';
-}
+        const completion = document.getElementById('case-completion');
+        if (completion) {
+        completion.style.display = 'none';
+        }
 
-const overview = document.getElementById('case-question-overview');
-if (overview) {
-    overview.style.display = 'none';
-}
+        const overview = document.getElementById('case-question-overview');
+        if (overview) {
+        overview.style.display = 'none';
+        }
 
-const prerequisite = document.getElementById('case-prerequisite');
-if (prerequisite) {
-    prerequisite.style.display = 'none';
-}
+        const prerequisite = document.getElementById('case-prerequisite');
+        if (prerequisite) {
+        prerequisite.style.display = 'none';
+        }
 
-const topics = document.getElementById('case-key-topics');
-if (topics) {
-    topics.style.display = 'none';
-}
+        const topics = document.getElementById('case-key-topics');
+        if (topics) {
+                  topics.style.display = 'none';
+        }
 
-const questions = document.getElementById('case-questions');
-if (questions) {
-    questions.style.display = 'none';
-}
+            const questions = document.getElementById('case-questions');
+            if (questions) {
+             questions.style.display = 'none';
+            }
 
         // optionally hide PDF link too
         const pdf = document.getElementById('case-pdf');
@@ -210,58 +303,144 @@ if (questions) {
             pdf.style.display = 'none';
         }
 
+
+
+        fetch('http://localhost:8080/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ caseId: window.activeCaseData.id }) 
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log("ALMA says:", data.reply);
+
+            
+             // ✅ Clean up UI
+            setupChat();
+
+            
+          
+            // 👇 Chain another fetch based on GPT's reply
+            return fetch('http://localhost:8080/log-chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ logMessage: data.reply })
+            });
+
+            
+          })
+          .then(res => res.json())
+          .then(logData => {
+            console.log("Chat log saved:", logData);
+          })
+          .catch(err => console.error("Error in chat chain:", err));
+        
+        
         };
+          
         
     }
 }
 
-function caseStudy1() {
-    console.log("Case Study 1 triggered");
-    updateCaseHeader("CASE STUDY 1");
-}
 
-function caseStudy2() {
-    console.log("Case Study 2 triggered");
-    updateCaseHeader("CASE STUDY 2");
-}
-
-function caseStudy3() {
-    console.log("Case Study 3 triggered");
-    updateCaseHeader("CASE STUDY 3");
-}
-
-function caseStudy4() {
-    console.log("Case Study 4 triggered");
-    updateCaseHeader("CASE STUDY 4");
-}
-
-function caseStudy5() {
-    console.log("Case Study 5 triggered");
-    updateCaseHeader("CASE STUDY 5");
-}
-
-function caseStudy6() {
-    console.log("Case Study 6 triggered");
-    updateCaseHeader("CASE STUDY 6");
-}
-
-function typeText(element, fullText, delay = 30, callback = null) {
-    element.innerHTML = ''; // Clear content and allow HTML like <br>
-    element.style.display = 'block';
-    let i = 0;
   
-    const interval = setInterval(() => {
-      element.innerHTML += fullText.charAt(i);  // ✅ Use innerHTML here
-      i++;
-      if (i >= fullText.length) {
-        clearInterval(interval);
-        if (callback) callback();
+// ✅ Define the async function outside (so it's not redefined every time)
+async function showCaseStudyDetails(caseData) {
+    const header = document.getElementById('case-header');
+    const subtitle = document.getElementById('case-subtitle');
+    const desc = document.getElementById('case-description');
+    const obj = document.getElementById('case-objective');
+    const dur = document.getElementById('case-duration');
+    const taughtBy = document.getElementById('case-taught-by');
+    const format = document.getElementById('case-format');
+    const completion = document.getElementById('case-completion');
+    const questionOverview = document.getElementById('case-question-overview');
+    const keyTopics = document.getElementById('case-key-topics');
+    const prerequisite = document.getElementById('case-prerequisite');
+    const pdf = document.getElementById('case-pdf');
+    const beginBtn = document.getElementById('begin-case-btn');
+    const backArrow = document.getElementById('back-arrow');
+  
+    if (header) {
+        
+        header.innerText = caseData.title;
+        header.style.display = 'block';
       }
-    }, delay);
-  }
-  
 
-const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
+    if (subtitle) {
+        subtitle.textContent = caseData.subtitle;
+        subtitle.style.display = 'block';
+      }
+
+    if (desc) {
+      desc.style.display = 'none';
+      await typeText(desc, `> Description: ${caseData.description}`);
+    }
+  
+    if (obj) {
+      obj.style.display = 'none';
+      await typeText(obj, `> Objective: ${caseData.objective}`);
+    }
+  
+    if (dur) {
+      dur.style.display = 'none';
+      await typeText(dur, `> Duration: ${caseData.duration}`);
+    }
+  
+    if (taughtBy) {
+      taughtBy.style.display = 'none';
+      await typeText(taughtBy, `> Taught By: ${caseData.taughtBy}`);
+    }
+  
+    if (format) {
+      format.style.display = 'none';
+      await typeText(format, `> Format: ${caseData.format}`);
+    }
+  
+    if (completion) {
+      completion.style.display = 'none';
+      await typeText(completion, `> Completion: ${caseData.completion}`);
+    }
+  
+    if (questionOverview) {
+      questionOverview.style.display = 'none';
+      await typeText(questionOverview, `> Questions: ${caseData.questionOverview}`);
+    }
+  
+    if (keyTopics) {
+      keyTopics.style.display = 'none';
+      const topicsText = caseData.keyTopics.map(topic => `    > ${topic}`).join('\n');
+      await typeText(keyTopics, `> Key Topics Covered:\n${topicsText}`);
+    }
+  
+    if (prerequisite) {
+      prerequisite.style.display = 'none';
+      await typeText(prerequisite, `> Prerequisite: ${caseData.prerequisite}`);
+    }
+
+    // ✅ Add these three at the end
+  if (pdf) {
+    pdf.style.display = 'none';
+    
+      pdf.innerHTML = `
+        <span class="terminal-button" onclick="window.open('${caseData.previewImg}', '_blank')">&gt; Open Case</span>
+      `;
+      pdf.style.display = 'block';
+    
+  }
+
+ 
+
+  if (beginBtn) {
+    beginBtn.style.display = 'none';
+    
+      beginBtn.style.display = 'block';
+    
+  }
+}
+    
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
@@ -296,144 +475,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
          buttons.forEach((btn, index) => {
             btn.addEventListener('click', () => {
+          
               document.body.style.backgroundImage = 'none';
           
               if (buttonRow) {
                 buttonRow.style.display = 'none';
               }
           
-              // ✅ show the back arrow
-              // ✅ show the back arrow after 12 seconds
-            if (backArrow) {
-                setTimeout(() => {
-                backArrow.style.display = 'block';
-            }, 11000);
-            }
           
-              // ✅ Get case study data
+            
+          
+              // ✅ STEP 2: Use ID to find the correct object in caseStudyData
               const caseData = caseStudyData[index];
           
-              if (caseData) {
-                const header = document.getElementById('case-header');
-                const desc = document.getElementById('case-description');
-                const obj = document.getElementById('case-objective');
-                const dur = document.getElementById('case-duration');
-                const pdf = document.getElementById('case-pdf');
-                const beginBtn = document.getElementById('begin-case-btn');
+              
           
-                if (header) {
-                  header.innerText = caseData.title;
-                  header.style.display = 'block';
+              // ✅ Async call to display case info
+              (async () => {
+                await showCaseStudyDetails(caseData);
+          
+                if (backArrow) {
+                  backArrow.style.display = 'block';
                 }
-
-                const subtitle = document.getElementById('case-subtitle');
-                if (subtitle) {
-                subtitle.textContent = caseData.subtitle;
-                subtitle.style.display = 'block';
-                }
+              })();
           
-                if (desc) {
-                    desc.style.display = 'none';
-                    setTimeout(() => {
-                      typeText(desc, `> Description: ${caseData.description}`);
-                    }, 200);
-                  }
-
-                  if (obj) {
-                    obj.style.display = 'none';
-                    setTimeout(() => {
-                      typeText(obj, `> Objective: ${caseData.objective}`);
-                    }, 1000);
-                  }
-                  
-                  if (dur) {
-                    dur.style.display = 'none';
-                    setTimeout(() => {
-                      typeText(dur, `> Duration: ${caseData.duration}`);
-                    }, 1800);
-                  }
-
-                  // New Field: Taught By
-const taughtBy = document.getElementById('case-taught-by');
-if (taughtBy) {
-  taughtBy.style.display = 'none';
-  setTimeout(() => {
-    typeText(taughtBy, `> Taught By: ${caseData.taughtBy}`);
-  }, 2600);
-}
-
-// New Field: Format
-const format = document.getElementById('case-format');
-if (format) {
-  format.style.display = 'none';
-  setTimeout(() => {
-    typeText(format, `> Format: ${caseData.format}`);
-  }, 3400);
-}
-
-// New Field: Completion
-const completion = document.getElementById('case-completion');
-if (completion) {
-  completion.style.display = 'none';
-  setTimeout(() => {
-    typeText(completion, `> Completion: ${caseData.completion}`);
-  }, 4200);
-}
-
-// ✅ Question Overview
-const questionOverview = document.getElementById('case-question-overview');
-if (questionOverview) {
-  questionOverview.style.display = 'none';
-  setTimeout(() => {
-    typeText(questionOverview, `> Questions: ${caseData.questionOverview}`);
-  }, 4600);
-}
-
-// ✅ Key Topics
-const keyTopics = document.getElementById('case-key-topics');
-if (keyTopics) {
-  keyTopics.style.display = 'none';
-  setTimeout(() => {
-    // Format topics as a comma-separated list with bullets
-    const topicsText = caseData.keyTopics.map(topic => `    > ${topic}`).join('\n');
-    typeText(keyTopics, `> Key Topics Covered:\n${topicsText}`);
-  }, 4800);
-}
-
-// New Field: Format
-const prerequisite = document.getElementById('case-prerequisite');
-if (prerequisite) {
-  prerequisite.style.display = 'none';
-  setTimeout(() => {
-    typeText(prerequisite, `> Prerequisite: ${caseData.prerequisite}`);
-  }, 5000);
-}         
-
-
-    if (pdf) {
-        pdf.style.display = 'none';
-        setTimeout(() => {
-         pdf.innerHTML = `
-          <span class="terminal-button" onclick="window.open('${caseData.previewImg}', '_blank')">&gt; Open Case</span>
-        `;
-         pdf.style.display = 'block';
-        }, 11000);
-    }
-  
-    if (beginBtn) {
-        beginBtn.style.display = 'none';
-        setTimeout(() => {
-            beginBtn.style.display = 'block';
-        }, 11000);
-    }
-                  
-                  
-              }
-          
-              // ✅ call the matching caseStudy function
+              // ✅ Call the function in caseStudies[index]
               caseStudies[index]?.();
             });
           });
+          
           
 
          // ✅ now add a click listener to the back arrow
@@ -483,39 +553,39 @@ if (prerequisite) {
         }
 
         const taught = document.getElementById('case-taught-by');
-if (taught) {
-    taught.style.display = 'none';
-}
+        if (taught) {
+            taught.style.display = 'none';
+        }
 
-const format = document.getElementById('case-format');
-if (format) {
-    format.style.display = 'none';
-}
+        const format = document.getElementById('case-format');
+        if (format) {
+            format.style.display = 'none';
+        }
 
-const completion = document.getElementById('case-completion');
-if (completion) {
-    completion.style.display = 'none';
-}
+        const completion = document.getElementById('case-completion');
+        if (completion) {
+         completion.style.display = 'none';
+        }
 
-const overview = document.getElementById('case-question-overview');
-if (overview) {
-    overview.style.display = 'none';
-}
+        const overview = document.getElementById('case-question-overview');
+        if (overview) {
+            overview.style.display = 'none';
+        }
 
-const prerequisite = document.getElementById('case-prerequisite');
-if (prerequisite) {
-    prerequisite.style.display = 'none';
-}
+        const prerequisite = document.getElementById('case-prerequisite');
+        if (prerequisite) {
+            prerequisite.style.display = 'none';
+        }
 
-const topics = document.getElementById('case-key-topics');
-if (topics) {
-    topics.style.display = 'none';
-}
+        const topics = document.getElementById('case-key-topics');
+        if (topics) {
+            topics.style.display = 'none';
+        }
 
-const questions = document.getElementById('case-questions');
-if (questions) {
+    const questions = document.getElementById('case-questions');
+    if (questions) {
     questions.style.display = 'none';
-}
+    }
 
         // optionally hide PDF link too
         const pdf = document.getElementById('case-pdf');
