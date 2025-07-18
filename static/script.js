@@ -60,20 +60,73 @@ const caseStudyData = [
             "Suggest which elements should be handled in-house and which should be outsourced to another company that may be better able to handle the job. Justify your suggestions in two paragraphs, one for the in-house jobs and one for the outsourced tasks."
           ]
     },
-    {
-      title: "CASE STUDY 3",
-      description: "Examine how AI-driven chatbots impact academic integrity.",
-      objective: "Design responsible usage policies to protect academic values.",
-      duration: "15 minutes",
-      pdfUrl: "pdfs/case3.pdf"
-    },
-    {
-        title: "CASE STUDY 4",
-        description: "Examine how AI-driven chatbots impact academic integrity.",
-        objective: "Design responsible usage policies to protect academic values.",
-        duration: "15 minutes",
-        pdfUrl: "pdfs/case3.pdf"
-    },
+{
+    id: "3",
+    title: "CASE STUDY 3",
+    subtitle: "We’re Off to See the Wizards",
+    description: "Join Elphaba and Glinda, owners of Emerald City Beautyscapes, as they navigate a critical business decision: should they build their own software system, buy a commercial off-the-shelf (COTS) package like QuickBooks Pro, or outsource to a service like Lawn Wizards? Explore the trade-offs between customization, cost, and scalability in software solutions.",
+    objective: "Analyze and compare the advantages and disadvantages of building proprietary software, purchasing COTS software, or outsourcing services, and recommend a suitable path for Emerald City Beautyscapes.",
+    duration: "30-35 minutes",
+    taughtBy: "Glinda K. Chenoweth and Assistant Bot ALMA",
+    format: "Interactive chat featuring short written reflections, scenario discussions, and a final recommendation memo.",
+    completion: "You’ll complete this case once you’ve responded to all comparison questions and provided a written recommendation.",
+    questionOverview: "5–7 total questions",
+    prerequisite: "Read Chapter 3",
+    previewImg: "../static/casestudy3.png",
+    pdfUrl: "pdfs/case3.pdf",
+
+    keyTopics: [
+        "Build vs. buy analysis",
+        "Commercial Off-The-Shelf (COTS) software",
+        "Outsourcing decisions",
+        "Customization vs. scalability",
+        "Software licensing models",
+        "Cost-benefit analysis in IT projects"
+    ],
+
+    questions: [
+        "What are the main advantages of building custom software for Emerald City Beautyscapes? What are the risks?",
+        "What benefits does COTS software like QuickBooks Pro offer compared to custom development?",
+        "What are the pros and cons of outsourcing to a service provider like Lawn Wizards?",
+        "Considering Emerald City’s needs (e.g., product tracking, scheduling, customer billing), which solution seems most scalable?",
+        "What role does cost play in making this decision? Should initial affordability outweigh long-term flexibility?",
+        "If you were in Elphaba’s position, what would you recommend: building, buying, or outsourcing? Justify your recommendation.",
+        "Draft a short memo outlining the recommendation to Elphaba and Glinda, including key reasons for your choice."
+    ]
+  },
+{
+    id: "4",
+    title: "CASE STUDY 4",
+    subtitle: "Order in the Courts",
+    description: "Assist Tennyson 'Tennys' Courts, a manager at Global Health Spas, as he works to improve a questionnaire designed for all spa managers. Analyze the flaws in his current survey approach and help redesign the form to gather clearer, more actionable feedback from 80 outlets worldwide.",
+    objective: "Evaluate the effectiveness of data collection forms in large organizations and recommend improvements to enhance usability, tone, and clarity of system feedback gathering.",
+    duration: "20-25 minutes",
+    taughtBy: "Terri Towell and Assistant Bot ALMA",
+    format: "Interactive chat with form critiques, short written suggestions, and Web form design analysis.",
+    completion: "You’ll complete this case study after critiquing the original form, proposing key revisions, and outlining how to implement an improved version digitally.",
+    questionOverview: "5–6 total questions",
+    prerequisite: "Read Chapter 4",
+    previewImg: "../static/casestudy4.png",
+    pdfUrl: "pdfs/case3.pdf",
+
+    keyTopics: [
+        "User-centered design",
+        "Effective survey/questionnaire design",
+        "Systems analysis and data gathering",
+        "Communication clarity",
+        "Form tone and professionalism",
+        "Human-computer interaction (HCI) principles"
+    ],
+
+    questions: [
+        "Critique the tone and urgency of Tennys’ current questionnaire. How might this tone affect responses from spa managers?",
+        "Identify at least three improvements to make the questionnaire clearer and easier for managers to complete.",
+        "What problems arise from mixing open-ended and scaled questions within the same form? How could this confuse respondents?",
+        "How could the form be adapted into a web-based survey? What are the benefits of a digital format?",
+        "Rewrite two problematic questions from the original form to demonstrate your recommended improvements.",
+        "Propose a brief outline for a revised feedback form suitable for collecting data from all 80 spa managers effectively."
+    ]
+},
     {
         id: "5",
         title: "CASE STUDY 5",
