@@ -103,13 +103,40 @@ const caseStudyData = [
     "Should the team use a prototype to gather customer input? If so, which type of prototype would you use and why? Explain which types may not apply to this problem."
   ]
     },
-    {
-        title: "CASE STUDY 6",
-        description: "Examine how AI-driven chatbots impact academic integrity.",
-        objective: "Design responsible usage policies to protect academic values.",
-        duration: "15 minutes",
-        pdfUrl: "pdfs/case3.pdf"
-    }
+{
+    id: "6",
+    title: "CASE STUDY 6",
+    subtitle: "Catching a Summer Code",
+    description: "Join Vicky and Shelly at their data entry department as they navigate a sudden change in city coding standards meant to accommodate temporary summer hires. Analyze the unintended consequences of management decisions on full-time staff efficiency and explore how to balance training needs with operational productivity.",
+    objective: "Evaluate the impact of coding changes on data entry processes and recommend improvements to prevent productivity losses during seasonal staffing changes.",
+    duration: "15-20 minutes",
+    taughtBy: "Shelly Overseer and Assistant Bot ALMA",
+    format: "Interactive chat featuring written responses, reflections, and memo-style recommendations.",
+    completion: "Completion requires answering all reflection and recommendation questions, with confirmation from both agents.",
+    questionOverview: "5–7 total questions",
+    prerequisite: "Read Chapter 3",
+    previewImg: "../static/casestudy6.png",
+    pdfUrl: "pdfs/case3.pdf",
+
+    keyTopics: [
+        "Business process management",
+        "Human factors in system design",
+        "Temporary staffing impacts",
+        "Coding standardization",
+        "Data entry efficiency",
+        "Operational change management"
+    ],
+
+    questions: [
+        "List general guidelines of coding management that were overlooked when introducing a summer code for cities.",
+        "Describe how changing city codes affects full-time data entry personnel. How does this impact productivity and morale?",
+        "What future complications could result from the temporary change in city codes? Consider data retrieval and sorting during the summer period.",
+        "Suggest changes to the data entry procedures that could prevent confusion for part-time hires without disrupting full-time staff.",
+        "What short-term and long-term solutions would you recommend in a memo to the supervisor to avoid similar issues in future summer periods?",
+        "How can these solutions be implemented without harming the productivity of existing staff?",
+        "Reflect: Do you believe management prioritized temporary needs over operational efficiency? Why or why not?"
+    ]
+}
 
 ];
 
