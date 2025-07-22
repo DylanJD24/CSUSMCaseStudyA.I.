@@ -39,7 +39,7 @@ const caseStudyData = [
         ]
       },
     {
-        id:2,
+        id: "2",
         title: "CASE STUDY 2",
         subtitle: "The E in Vitamin E Stands for Ecommerce",
         description: "Help the owners of Marathon Vitamin Shops identify, evaluate, and prioritize the essential components of an ecommerce system. Analyze the interdependence of tasks and determine which responsibilities should be kept in-house or outsourced.",
@@ -60,6 +60,19 @@ const caseStudyData = [
           "System interdependence",
           "Digital service scalability"
         ],
+
+        context: `“Our retail shops and mail-order division are quite healthy,” says Bill Berry, one of the owners of Marathon Vitamin Shops, “but to be competitive, we must establish an ecommerce website.” His father, a co-owner, exclaims, “I agree, but where do we start?” The elder Berry knew, of course, that it wasn’t a case of setting up a website and asking customers to order off the website. He identified eight different parts to ecommerce and realized that they were all part of a larger system. In other words, all the parts had to work together to create a strong package. His list of elements essential to ecommerce included the following:
+
+1. Attracting customers to an ecommerce website  
+2. Informing customers about products and services offered  
+3. Allowing customers to customize products online  
+4. Completing transactions with customers  
+5. Accepting payment from customers in a variety of forms  
+6. Supporting customers after the sale via the website  
+7. Arranging for the delivery of goods and services  
+8. Personalizing the look and feel of the website for different customers
+
+Bill Berry read the list and contemplated it for a while. “It is obvious that ecommerce is more complex than I thought,” he says.`,
       
         questions: [
             "Make a list of the elements that are interrelated or interdependent. Then write a paragraph stating why it is critical to monitor these elements closely.",
@@ -80,7 +93,6 @@ const caseStudyData = [
       questionOverview: "5–7 total questions",
       prerequisite: "Read Chapter 3",
       previewImg: "../static/casestudy3.png",
-      pdfUrl: "pdfs/case3.pdf",
   
       keyTopics: [
           "Build vs. buy analysis",
@@ -114,7 +126,6 @@ const caseStudyData = [
       questionOverview: "5–6 total questions",
       prerequisite: "Read Chapter 4",
       previewImg: "../static/casestudy4.png",
-      pdfUrl: "pdfs/case3.pdf",
   
       keyTopics: [
           "User-centered design",
@@ -210,8 +221,6 @@ const asciiArt = `
 +--------------------------------------------------------------+-----------------------------+
 `;
 
-document.getElementById("asciiDisplay").innerText = asciiArt;
-//end ascii
 
 function caseStudy1() {
   const caseData = caseStudyData.find(cs => cs.id === "1");
@@ -222,13 +231,19 @@ function caseStudy1() {
 }
 
 function caseStudy2() {
+    const caseData = caseStudyData.find(cs => cs.id === "2");
+  if (caseData) {
     console.log("Case Study 2 triggered");
     updateCaseHeader(caseData.title, caseData);
+  } 
 }
 
 function caseStudy3() {
+  const caseData = caseStudyData.find(cs => cs.id === "3");
+  if (caseData) {
     console.log("Case Study 3 triggered");
-    updateCaseHeader("CASE STUDY 3");
+    updateCaseHeader(caseData.title, caseData);
+  } 
 }
 
 function caseStudy4() {
