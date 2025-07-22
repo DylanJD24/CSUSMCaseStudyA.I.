@@ -176,6 +176,43 @@ const caseStudyData = [
 
 const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
 
+//begin ascii
+const asciiArt = `
++--------------------------------------------------------------+-----------------------------+
+| QUESTIONNAIRE FOR ALL MANAGERS OF HEALTH SPAS                | What is the biggest problem|
+| ***URGENT*** FILL OUT IMMEDIATELY AND RETURN                 | you have when communicating|
+| PERSONALLY TO YOUR DIVISION MANAGER. YOUR NEXT               | your information           |
+| PAYCHECK WILL BE WITHHELD UNTIL IT IS CONFIRMED              | requirements to            |
+| THAT YOU HAVE TURNED THIS IN.                                | headquarters? Describe it  |
+|                                                              | briefly.                   |
+| In 10 words or fewer, what complaints have you lodged about  |                             |
+| the current computer system in the last six months to a year?|                             |
+|                                                              | How much computer downtime |
+| Are there others who feel the same way in your outlet as     | did you experience last    |
+| you do? Who? List their names and positions.                 | year?                      |
+|                                                              | 1-2-3-4-5-6-7-8-9-10       |
+| 1.                                                           |                             |
+| 2.                                                           | Is there any computer      |
+| 3.                                                           | equipment you never use?   |
+| 4.                                                           |                             |
+| 5.                                                           | Description Serial Number   |
+| 6.                                                           |                             |
+| 7.                                                           | Do you want it removed?    |
+|                          [Sticky Note:]                      | Agree   Neutral   Disagree  |
+|                          Terri                               |                             |
+|                          Please help me improve this form.   | In your opinion, what’s    |
+|                          Tennys                              | next as far as computers   |
+|                                                              | and Global Health Spas are |
+|                                                              | concerned?                 |
+|                                                              |                             |
+|                                                              | Thanks for filling this    |
+|                                                              | out. ...................... |
++--------------------------------------------------------------+-----------------------------+
+`;
+
+document.getElementById("asciiDisplay").innerText = asciiArt;
+//end ascii
+
 function caseStudy1() {
   const caseData = caseStudyData.find(cs => cs.id === "1");
   if (caseData) {
