@@ -9,6 +9,50 @@ body {
     margin: 0;
 }
 
+#user-answer {
+  width: 95%;
+  height: 120px;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: black;
+  color: #2dd959;
+  border: 1px solid #2dd959;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+#submit-question-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#ask-tutor-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#ask-professor-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#user-answer:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+#word-count {
+  margin-left: 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: #2dd959;
+  font-size: 0.95rem;
+}
+
+
 
   .dots-loader {
     display: flex;
@@ -22,8 +66,8 @@ body {
   }
   
   .dots-loader div {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     background-color: #2dd959;
     border-radius: 50%;
     animation: bounce 1.2s infinite;
@@ -45,6 +89,13 @@ body {
     }
   }
   
+
+.loading-text {
+  font-family: 'Orbitron', sans-serif;
+  color: #2dd959;
+  font-size: 3.4rem;
+}
+
   .button-row {
     display: none; 
     position: absolute;
@@ -95,29 +146,30 @@ body {
   width: 100px;
   height: 60px;
   font-size: 50px;
-  background-color: #2dd959;
-  color: black;
-  border: 2px solid #2dd959;
+  background-color: black;
+  color: #2dd959;
+
   cursor: pointer;
  
 }
 
 .back-arrow:hover {
-  color: #2dd959;
-    background-color: black;
-    border-color: #2dd959;
+  transform: scale(1.3);
+    border: 2px solid #2dd959;
 }
 
 #case-header {
+  display: none;
   font-family: 'Orbitron', sans-serif;
   color: #2dd959;
-  display: none;
+  
   font-size: 100px;
   text-align: center;
   margin-top: 25px;
 }
 
 #case-subtitle {
+  display: none;
   font-family: 'Orbitron', sans-serif;
   color: #2dd959;
   font-size: 1.5rem;
@@ -228,3 +280,102 @@ body {
   word-wrap: break-word;   /* Force break long words if needed */
   line-height: 1.8; /* 1.6 × font-size = more readable spacing */
 }
+
+#case-context,
+#prof-overview,
+#tutor-overview {
+  width: 95%;
+  height: 40%;
+  /* REMOVE: display: none; */
+  font-family: 'Share Tech Mono', monospace;
+  color: #2dd959;
+  margin: 1rem;
+  padding: 0.5rem;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+
+.tab-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.tab-btn {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: black;
+  color: #2dd959;
+  border: 1px solid #2dd959;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background-color: #2dd959;
+  color: black;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+
+#question-container {
+  width: 95%;
+  font-family: 'Share Tech Mono', monospace;
+  color: #2dd959;
+  margin: 1rem;
+  padding: 0.5rem;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+#question-buttons {
+  margin: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#question-buttons button {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: black;
+  color: #2dd959;
+  border: 1px solid #2dd959;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#question-buttons button:hover {
+  background-color: #2dd959;
+  color: black;
+}
+
+
+
+.collapsible-container {
+  display: none;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.collapsible-toggle {
+  background: none;
+  border: none;
+  color: #2dd959;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.collapsible-toggle:hover {
+  text-decoration: underline;
+}
+
