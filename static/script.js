@@ -135,7 +135,7 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
           "Form tone and professionalism",
           "Human-computer interaction (HCI) principles"
       ],
-     context: "“I love my work,” Tennys says, beginning the interview with a volley. “It’s a lot like a game. I keep my eye on the ball and never look back,” he continues. Tennyson “Tennys” Courts is a manager for Global Health Spas, Inc., which has popular health and recreation spas worldwide. “Now that I’ve finished my MBA, I feel like I’m on top of the world with Global,” Tennys says. “I think I can really help this outfit shape up with its computers and health spas.” Tennys is attempting to help your systems group, which is developing a cloud-based system to be used by all 80 outlets. “Can I bounce this off you?” he asks Terri Towell, a member of your team of systems analysts. “It’s a questionnaire I designed for distribution to all spa managers.” Ever the good sport, Terri tells Tennys that she’d love to take a look at the form. But back in the office, Terri puts the ball in your court. Systematically critique Tennys’s technique, as depicted in Figure 4.C2, and explain to him point by point what it needs to be a matchless questionnaire with a winning form. Building on your critique, tell Tennys what he should do to rewrite the form as a Web survey instead.\n" +
+      context: "“I love my work,” Tennys says, beginning the interview with a volley. “It’s a lot like a game. I keep my eye on the ball and never look back,” he continues. Tennyson “Tennys” Courts is a manager for Global Health Spas, Inc., which has popular health and recreation spas worldwide. “Now that I’ve finished my MBA, I feel like I’m on top of the world with Global,” Tennys says. “I think I can really help this outfit shape up with its computers and health spas.” Tennys is attempting to help your systems group, which is developing a cloud-based system to be used by all 80 outlets. “Can I bounce this off you?” he asks Terri Towell, a member of your team of systems analysts. “It’s a questionnaire I designed for distribution to all spa managers.” Ever the good sport, Terri tells Tennys that she’d love to take a look at the form. But back in the office, Terri puts the ball in your court. Systematically critique Tennys’s technique, as depicted in Figure 4.C2, and explain to him point by point what it needs to be a matchless questionnaire with a winning form. Building on your critique, tell Tennys what he should do to rewrite the form as a Web survey instead.\n" +
 
       "+--------------------------------------------------------------+-----------------------------+\n" +
       "| QUESTIONNAIRE FOR ALL MANAGERS OF HEALTH SPAS                | What is the biggest problem|\n" +
@@ -167,6 +167,7 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
       "|                                                              | Thanks for filling this    |\n" +
       "|                                                              | out. ...................... |\n" +
       "+--------------------------------------------------------------+-----------------------------+\n",
+      
       questions: [
           "Critique the tone and urgency of Tennys’ current questionnaire. How might this tone affect responses from spa managers?",
           "Identify at least three improvements to make the questionnaire clearer and easier for managers to complete.",
@@ -197,8 +198,9 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
         "Content organization and structure",
         "Men’s vs. women’s shopping habits",
         "Prototype types and testing methods"
-    ],
-    context: "World’s Trend (see Chapter 7 for a detailed corporate description) is building a website on which to sell clearance merchandise usually sold through the Web and through its catalog operation. As a newly hired Web consultant, Lincoln Cerf finds himself in a very cold, wintry city, fighting his way through several inches of snow to meet with one of the systems team members, Mary Maye, at World’s Trend headquarters. Mary welcomes Lincoln, saying, “At least the weather doesn’t seem to affect our Web sales! They’re brisk no matter what.” Lincoln groans appreciatively at her weak attempt at humor, smiles, and says, “I gathered from your email last week that you are trying to determine the type of information that needs to be displayed on your clearance website.” Mary replies, “Yes, I’m trying to get it organized in the best possible way. Our customers are all so busy. I know photos of all our merchandise can take a long time to appear on the page if a customer is accessing the Web via a slower modem from home.” Mary continues, saying, “Linc, I’m not even that concerned about how we design our clearance site at this time. I am worried, though, about how much information we need to include on a page. For example, when items are on clearance, not all colors and sizes are available. Which do you think is better, to include some basic information and let the customer click a button to ask for more information, or to be as complete as possible on one page? If I use the linking method, then I could fit more items on the screen...but it might be too orderly. Customers like the look and feel of a sale in which merchandise is kind of jumbled together.” Linc counters her line of thought, saying, “Yeah, I wonder how customers want the information organized. Have you actually watched them use the Web? I mean, do they look for shoes when they buy a suit? If so, should shoes appear on the suit page or be linked in some way?” Mary comments, “Those are my questions, too. Then I wonder if we should just try this approach for men’s clothing before we implement it for women’s clothing. What if men’s and women’s approaches to shopping on the Web are different?” As a third member of the World’s Trend website development group, respond in a brief written report to Lincoln and Mary about whether they should use a prototype to elicit recommendations from potential customers about the proposed website. What type of prototype is appropriate? Consider each form of prototype and explain why each type would apply (or would not apply) to this problem. Devote a paragraph to each explanation.",
+      ],
+      
+context: "World’s Trend is building a website on which to sell clearance merchandise usually sold through the Web and through its catalog operation. As a newly hired Web consultant, Lincoln Cerf finds himself in a very cold, wintry city, fighting his way through several inches of snow to meet with one of the systems team members, Mary Maye, at World’s Trend headquarters. Mary welcomes Lincoln, saying, “At least the weather doesn’t seem to affect our Web sales! They’re brisk no matter what.” Lincoln groans appreciatively at her weak attempt at humor, smiles, and says, “I gathered from your email last week that you are trying to determine the type of information that needs to be displayed on your clearance website.” Mary replies, “Yes, I’m trying to get it organized in the best possible way. Our customers are all so busy. I know photos of all our merchandise can take a long time to appear on the page if a customer is accessing the Web via a slower modem from home.” Mary continues, saying, “Linc, I’m not even that concerned about how we design our clearance site at this time. I am worried, though, about how much information we need to include on a page. For example, when items are on clearance, not all colors and sizes are available. Which do you think is better, to include some basic information and let the customer click a button to ask for more information, or to be as complete as possible on one page? If I use the linking method, then I could fit more items on the screen...but it might be too orderly. Customers like the look and feel of a sale in which merchandise is kind of jumbled together.” Linc counters her line of thought, saying, “Yeah, I wonder how customers want the information organized. Have you actually watched them use the Web? I mean, do they look for shoes when they buy a suit? If so, should shoes appear on the suit page or be linked in some way?” Mary comments, “Those are my questions, too. Then I wonder if we should just try this approach for men’s clothing before we implement it for women’s clothing. What if men’s and women’s approaches to shopping on the Web are different?” As a third member of the World’s Trend website development group, respond in a brief written report to Lincoln and Mary about whether they should use a prototype to elicit recommendations from potential customers about the proposed website. What type of prototype is appropriate? Consider each form of prototype and explain why each type would apply (or would not apply) to this problem. Devote a paragraph to each explanation.",
 
     questions: [
       "What type of information needs to be displayed on the clearance website?",
@@ -211,53 +213,44 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
       "Could men's and women's online shopping behaviors be different?",
       "Should a prototype be used to gather customer feedback about the website design?",
       "Which type of prototype (low-fidelity, high-fidelity, horizontal, vertical) is most appropriate for this project?"
-    ]
+  ]
     },
     {
-        title: "CASE STUDY 6",
-        description: "Examine how AI-driven chatbots impact academic integrity.",
-        objective: "Design responsible usage policies to protect academic values.",
-        duration: "15 minutes",
-        pdfUrl: "pdfs/case3.pdf"
+      "id": "6",
+      "title": "CASE STUDY 6",
+      "subtitle": "Catching a Summer Code",
+      "description": "This case study explores the challenges faced by a data entry team during the summer months, when temporary workers are brought in and coding systems are changed for ease of use. Students will analyze the effects of altering data standards, consider the long-term consequences of such decisions, and recommend improvements to maintain consistency and accuracy in data management.",
+      "objective": "Evaluate the impact of temporary operational changes on full-time staff, data integrity, and long-term retrieval. Recommend strategies for integrating short-term employees without disrupting workflows or reducing data quality.",
+      "duration": "30–40 minutes",
+      "taughtBy": "Dr. Elena Strauss and Assistant TIA (ALMA)",
+      "format": "Critical thinking prompts and short responses in a guided assistant chat.",
+      "completion": "You’ll finish after submitting structured responses to each question and both instructors provide approval.",
+      "questionOverview": "3 total questions requiring paragraph-length written responses",
+      "prerequisite": "Read Chapter 15",
+      "previewImg": "../static/casestudy6.png",
+      "keyTopics": [
+        "Data entry standards",
+        "Short-term staffing impact",
+        "Code consistency and retrieval",
+        "Employee productivity",
+        "System design for scalability",
+        "Human error in data operations"
+      ],
+      "context": "Vicky takes her fingers off her keyboard and bends over her workstation to verify the letters on the invoices stacked in front of her. \"What on earth?\" Vicky asks aloud as she further scrutinizes the letters that encode cities where orders are to be shipped.\n\nShelly Overseer, her supervisor, who usually sits a couple of workstations away, is passing by and sees Vicky's consternation. \"What's the matter? Did the sales rep forget to write in the city code again?\"\n\nVicky swings around in her chair to face Shelly. \"No, there are codes here, but they're weird. We usually use a three-letter code, right? Like CIN for Cincinnati, SEA for Seattle, MIN for Minneapolis, BUF for Buffalo. They're all five-letter codes here, though.\"\n\n\"Look,\" Vicky says, lifting the invoice to show Shelly. \"CINNC, SEATT, MINNE. It'll take me all day to enter these. No kidding, it's really slowing me down. Maybe there's a mistake. Can't I just use the standard?\"\n\nShelly backs away from Vicky's workstation as if the problem were contagious. Excusing herself apologetically, Shelly says, \"It's the part-timers. They are learning sales now, and management was worried that they'd get messed up on their cities. I think it has something to do with mixing up Newark and New Orleans on the last orders. So, a committee decided to make the cities more recognizable by having them add two letters. Those kids can't learn everything we know overnight, even though they try. It's just until August 19, though, when the part-timers go back to school.\"\n\nAs Vicky glumly turns back to her keyboard, Shelly shakes her head sympathetically and says, \"I know it's a strain and it's making you feel miserable, but don't worry. You'll get over it. It's just a summer code.\"",
+      "questions": [
+        "What general guidelines of coding has management over- looked in its decision to use a summer code for cities? Make a list of them.",
+        "What is the effect on full-time data entry personnel of changing codes for the ease of temporary help? Respond in two paragraphs.",
+        "What future impact could the temporary change in codes have on sorting and retrieving data entered during the summer period? Take two paragraphs to discuss these implications.",
+        "What changes can you suggest so that the part-timers don't get mixed up on codes in the short term?",
+        "In a memo to the supervisor of this work group, make a list of five to seven changes in the data capture or data entry procedures that can be made to accommodate short-term hires without disrupting normal business.",
+        "In a paragraph, indicate how this goal can be accomplished without marring the productivity of data entry personnel."
+      ]
     }
+    
 
 ];
 
 const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
-
-//begin ascii
-const asciiArt = `
-+--------------------------------------------------------------+-----------------------------+
-| QUESTIONNAIRE FOR ALL MANAGERS OF HEALTH SPAS                | What is the biggest problem|
-| ***URGENT*** FILL OUT IMMEDIATELY AND RETURN                 | you have when communicating|
-| PERSONALLY TO YOUR DIVISION MANAGER. YOUR NEXT               | your information           |
-| PAYCHECK WILL BE WITHHELD UNTIL IT IS CONFIRMED              | requirements to            |
-| THAT YOU HAVE TURNED THIS IN.                                | headquarters? Describe it  |
-|                                                              | briefly.                   |
-| In 10 words or fewer, what complaints have you lodged about  |                             |
-| the current computer system in the last six months to a year?|                             |
-|                                                              | How much computer downtime |
-| Are there others who feel the same way in your outlet as     | did you experience last    |
-| you do? Who? List their names and positions.                 | year?                      |
-|                                                              | 1-2-3-4-5-6-7-8-9-10       |
-| 1.                                                           |                             |
-| 2.                                                           | Is there any computer      |
-| 3.                                                           | equipment you never use?   |
-| 4.                                                           |                             |
-| 5.                                                           | Description Serial Number   |
-| 6.                                                           |                             |
-| 7.                                                           | Do you want it removed?    |
-|                          [Sticky Note:]                      | Agree   Neutral   Disagree  |
-|                          Terri                               |                             |
-|                          Please help me improve this form.   | In your opinion, what’s    |
-|                          Tennys                              | next as far as computers   |
-|                                                              | and Global Health Spas are |
-|                                                              | concerned?                 |
-|                                                              |                             |
-|                                                              | Thanks for filling this    |
-|                                                              | out. ...................... |
-+--------------------------------------------------------------+-----------------------------+
-`;
 
 
 function caseStudy1() {
