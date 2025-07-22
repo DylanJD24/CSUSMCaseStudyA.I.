@@ -135,8 +135,38 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
           "Form tone and professionalism",
           "Human-computer interaction (HCI) principles"
       ],
-      context: "“I love my work,” Tennys says, beginning the interview with a volley. “It’s a lot like a game. I keep my eye on the ball and never look back,” he continues. Tennyson “Tennys” Courts is a manager for Global Health Spas, Inc., which has popular health and recreation spas worldwide. “Now that I’ve finished my MBA, I feel like I’m on top of the world with Global,” Tennys says. “I think I can really help this outfit shape up with its computers and health spas.” Tennys is attempting to help your systems group, which is developing a cloud-based system to be used by all 80 outlets. “Can I bounce this off you?” he asks Terri Towell, a member of your team of systems analysts. “It’s a questionnaire I designed for distribution to all spa managers.” Ever the good sport, Terri tells Tennys that she’d love to take a look at the form. But back in the office, Terri puts the ball in your court. Systematically critique Tennys’s technique, as depicted in Figure 4.C2, and explain to him point by point what it needs to be a matchless questionnaire with a winning form. Building on your critique, tell Tennys what he should do to rewrite the form as a Web survey instead.",
-      
+     context: "“I love my work,” Tennys says, beginning the interview with a volley. “It’s a lot like a game. I keep my eye on the ball and never look back,” he continues. Tennyson “Tennys” Courts is a manager for Global Health Spas, Inc., which has popular health and recreation spas worldwide. “Now that I’ve finished my MBA, I feel like I’m on top of the world with Global,” Tennys says. “I think I can really help this outfit shape up with its computers and health spas.” Tennys is attempting to help your systems group, which is developing a cloud-based system to be used by all 80 outlets. “Can I bounce this off you?” he asks Terri Towell, a member of your team of systems analysts. “It’s a questionnaire I designed for distribution to all spa managers.” Ever the good sport, Terri tells Tennys that she’d love to take a look at the form. But back in the office, Terri puts the ball in your court. Systematically critique Tennys’s technique, as depicted in Figure 4.C2, and explain to him point by point what it needs to be a matchless questionnaire with a winning form. Building on your critique, tell Tennys what he should do to rewrite the form as a Web survey instead.\n" +
+
+      "+--------------------------------------------------------------+-----------------------------+\n" +
+      "| QUESTIONNAIRE FOR ALL MANAGERS OF HEALTH SPAS                | What is the biggest problem|\n" +
+      "| ***URGENT*** FILL OUT IMMEDIATELY AND RETURN                 | you have when communicating|\n" +
+      "| PERSONALLY TO YOUR DIVISION MANAGER. YOUR NEXT               | your information           |\n" +
+      "| PAYCHECK WILL BE WITHHELD UNTIL IT IS CONFIRMED              | requirements to            |\n" +
+      "| THAT YOU HAVE TURNED THIS IN.                                | headquarters? Describe it  |\n" +
+      "|                                                              | briefly.                   |\n" +
+      "| In 10 words or fewer, what complaints have you lodged about  |                             |\n" +
+      "| the current computer system in the last six months to a year?|                             |\n" +
+      "|                                                              | How much computer downtime |\n" +
+      "| Are there others who feel the same way in your outlet as     | did you experience last    |\n" +
+      "| you do? Who? List their names and positions.                 | year?                      |\n" +
+      "|                                                              | 1-2-3-4-5-6-7-8-9-10       |\n" +
+      "| 1.                                                           |                             |\n" +
+      "| 2.                                                           | Is there any computer      |\n" +
+      "| 3.                                                           | equipment you never use?   |\n" +
+      "| 4.                                                           |                             |\n" +
+      "| 5.                                                           | Description Serial Number   |\n" +
+      "| 6.                                                           |                             |\n" +
+      "| 7.                                                           | Do you want it removed?    |\n" +
+      "|                          [Sticky Note:]                      | Agree   Neutral   Disagree  |\n" +
+      "|                          Terri                               |                             |\n" +
+      "|                          Please help me improve this form.   | In your opinion, what’s    |\n" +
+      "|                          Tennys                              | next as far as computers   |\n" +
+      "|                                                              | and Global Health Spas are |\n" +
+      "|                                                              | concerned?                 |\n" +
+      "|                                                              |                             |\n" +
+      "|                                                              | Thanks for filling this    |\n" +
+      "|                                                              | out. ...................... |\n" +
+      "+--------------------------------------------------------------+-----------------------------+\n",
       questions: [
           "Critique the tone and urgency of Tennys’ current questionnaire. How might this tone affect responses from spa managers?",
           "Identify at least three improvements to make the questionnaire clearer and easier for managers to complete.",
