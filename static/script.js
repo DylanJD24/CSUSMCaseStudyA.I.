@@ -198,12 +198,20 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
         "Men’s vs. women’s shopping habits",
         "Prototype types and testing methods"
     ],
+    context: "World’s Trend (see Chapter 7 for a detailed corporate description) is building a website on which to sell clearance merchandise usually sold through the Web and through its catalog operation. As a newly hired Web consultant, Lincoln Cerf finds himself in a very cold, wintry city, fighting his way through several inches of snow to meet with one of the systems team members, Mary Maye, at World’s Trend headquarters. Mary welcomes Lincoln, saying, “At least the weather doesn’t seem to affect our Web sales! They’re brisk no matter what.” Lincoln groans appreciatively at her weak attempt at humor, smiles, and says, “I gathered from your email last week that you are trying to determine the type of information that needs to be displayed on your clearance website.” Mary replies, “Yes, I’m trying to get it organized in the best possible way. Our customers are all so busy. I know photos of all our merchandise can take a long time to appear on the page if a customer is accessing the Web via a slower modem from home.” Mary continues, saying, “Linc, I’m not even that concerned about how we design our clearance site at this time. I am worried, though, about how much information we need to include on a page. For example, when items are on clearance, not all colors and sizes are available. Which do you think is better, to include some basic information and let the customer click a button to ask for more information, or to be as complete as possible on one page? If I use the linking method, then I could fit more items on the screen...but it might be too orderly. Customers like the look and feel of a sale in which merchandise is kind of jumbled together.” Linc counters her line of thought, saying, “Yeah, I wonder how customers want the information organized. Have you actually watched them use the Web? I mean, do they look for shoes when they buy a suit? If so, should shoes appear on the suit page or be linked in some way?” Mary comments, “Those are my questions, too. Then I wonder if we should just try this approach for men’s clothing before we implement it for women’s clothing. What if men’s and women’s approaches to shopping on the Web are different?” As a third member of the World’s Trend website development group, respond in a brief written report to Lincoln and Mary about whether they should use a prototype to elicit recommendations from potential customers about the proposed website. What type of prototype is appropriate? Consider each form of prototype and explain why each type would apply (or would not apply) to this problem. Devote a paragraph to each explanation.",
 
-  questions: [
-    "Should the clearance webpage display a lot of items with minimal info or fewer items with detailed info? Defend your decision in a short paragraph.",
-    "Should the company test this approach on women’s clothing first? What if men and women shop differently online? Write a paragraph justifying your decision.",
-    "Should the team use a prototype to gather customer input? If so, which type of prototype would you use and why? Explain which types may not apply to this problem."
-  ]
+    questions: [
+      "What type of information needs to be displayed on the clearance website?",
+      "Should photos of merchandise be limited due to slow internet connections?",
+      "Should basic information with clickable links be used, or should all information appear directly on the page?",
+      "Do customers prefer information to be organized or presented in a more jumbled, sale-like layout?",
+      "Have customers’ behaviors on the current website been observed directly?",
+      "Should related items (e.g., shoes with suits) appear together on the same page or as separate links?",
+      "Should the proposed approach be tested only with men's clothing before applying it to women's?",
+      "Could men's and women's online shopping behaviors be different?",
+      "Should a prototype be used to gather customer feedback about the website design?",
+      "Which type of prototype (low-fidelity, high-fidelity, horizontal, vertical) is most appropriate for this project?"
+    ]
     },
     {
         title: "CASE STUDY 6",
