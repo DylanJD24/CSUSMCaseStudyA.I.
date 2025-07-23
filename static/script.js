@@ -387,48 +387,51 @@ function setupTabSwitching() {
 function setupChat({ caseId, caseSubtitle, caseContext }) {
   console.log("[setupChat] Running with:", { caseId, caseSubtitle, caseContext });
 
+  // Remove background
   document.body.style.backgroundImage = 'none';
 
+  // Elements
   const dotsLoader = document.querySelector('.dots-loader');
   const backArrow = document.querySelector('.back-arrow');
   const contextEl = document.getElementById('case-context');
   const tabSection = document.getElementById('tab-section');
+  const tabButtons = document.querySelector('.tab-buttons');
 
   if (dotsLoader) dotsLoader.style.display = 'none';
   if (backArrow) backArrow.style.display = 'block';
 
-  // ✅ Fill case context
+  // ✅ Fill case context content
   if (contextEl && caseContext) {
     contextEl.textContent = ''; // clear first
     contextEl.textContent = `Case Study\n> ${caseContext}`;
-
+    contextEl.style.display = 'block'; // ← ensure it's not hidden from earlier flow
   } else {
     console.warn("[setupChat] ⚠️ Missing context or contextEl");
   }
 
-  // ✅ Show tab UI section
-  if (tabSection) {
-    tabSection.style.display = 'block';
-    console.log("[setupChat] ✅ Showing tab section");
-  }
+  // ✅ Show tab UI section and buttons
+  if (tabSection) tabSection.style.display = 'block';
+  if (tabButtons) tabButtons.style.display = 'flex';
+  console.log("[setupChat] ✅ Showing tab section");
 
-  // ✅ Set only 'context' tab as active
+  // ✅ Reset all tab states
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelector('[data-tab="context"]').classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(el => {
+    el.classList.remove('active');
+    el.style.display = 'none'; // hide all
+  });
 
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-context').classList.add('active');
+  // ✅ Activate only 'context' tab
+  const contextTabBtn = document.querySelector('[data-tab="context"]');
+  const contextTabContent = document.getElementById('tab-context');
 
-  // ✅ Unhide tab buttons after they were hidden by back arrow
-const tabButtons = document.querySelector('.tab-buttons');
-if (tabButtons) tabButtons.style.display = 'flex';
-
-// ✅ Make sure active tab content is shown
-const activeTab = document.querySelector('.tab-content.active');
-if (activeTab) activeTab.style.display = 'block';
-
-
+  if (contextTabBtn) contextTabBtn.classList.add('active');
+  if (contextTabContent) {
+    contextTabContent.classList.add('active');
+    contextTabContent.style.display = 'block'; // ensure it's visible
+  }
 }
+
 
 const textarea = document.getElementById('user-answer');
 const wordCountDisplay = document.getElementById('word-count');
@@ -990,109 +993,50 @@ window.addEventListener('DOMContentLoaded', () => {
           
 
          // ✅ now add a click listener to the back arrow
-        if (backArrow) {
-        backArrow.addEventListener('click', () => {
-        // show the background image again
-        document.body.style.backgroundImage = "url('../static/csCasebg_recolored.png')";
+         if (backArrow) {
+          backArrow.addEventListener('click', () => {
+            // Reset background
+            document.body.style.backgroundImage = "url('../static/csCasebg_recolored.png')";
         
-        // show the button row again
-        if (buttonRow) {
-            buttonRow.style.display = 'flex';
-        }
-
-
-        // hide the back arrow again
-        backArrow.style.display = 'none';
-
-        hideCaseDetails();
-
-        // ✅ Now inside the click handler
-        const header = document.getElementById('case-header');
-        if (header) {
-            header.style.display = 'none';
-        }
-
-
-        const subtitle = document.getElementById('case-subtitle');
-        if (subtitle) {
-            subtitle.style.display = 'none';
-        }
-
-     
-
-
-        const context = document.getElementById('case-context');
-        if (context) {
-            context.style.display = 'none';
-        }
-
-        const beginBtn = document.getElementById('begin-case-btn');
-        if (beginBtn) {
-            beginBtn.style.display = 'none';
-        }
-
-        // hide description, objective, and duration sections
-        const desc = document.getElementById('case-description');
-        if (desc) {
-            desc.style.display = 'none';
-        }
-
-        const obj = document.getElementById('case-objective');
-        if (obj) {
-            obj.style.display = 'none';
-        }
-
-        const dur = document.getElementById('case-duration');
-        if (dur) {
-            dur.style.display = 'none';
-        }
-
-        const taught = document.getElementById('case-taught-by');
-        if (taught) {
-            taught.style.display = 'none';
-        }
-
-        const format = document.getElementById('case-format');
-        if (format) {
-            format.style.display = 'none';
-        }
-
-        const completion = document.getElementById('case-completion');
-        if (completion) {
-         completion.style.display = 'none';
-        }
-
-        const overview = document.getElementById('case-question-overview');
-        if (overview) {
-            overview.style.display = 'none';
-        }
-
-        const prerequisite = document.getElementById('case-prerequisite');
-        if (prerequisite) {
-            prerequisite.style.display = 'none';
-        }
-
-        const topics = document.getElementById('case-key-topics');
-        if (topics) {
-            topics.style.display = 'none';
-        }
-
-    const questions = document.getElementById('case-questions');
-    if (questions) {
-    questions.style.display = 'none';
-    }
-
-        // optionally hide PDF link too
-        const pdf = document.getElementById('case-pdf');
-        if (pdf) {
-            pdf.style.display = 'none';
-        }
-
-        });
-
+            // Show button row
+            if (buttonRow) buttonRow.style.display = 'flex';
         
-
+            // Hide back arrow
+            backArrow.style.display = 'none';
+        
+            // Hide individual case elements
+            const idsToHide = [
+              'case-header', 'case-subtitle', 'case-context', 'begin-case-btn',
+              'case-description', 'case-objective', 'case-duration',
+              'case-taught-by', 'case-format', 'case-completion',
+              'case-question-overview', 'case-prerequisite', 'case-key-topics',
+              'case-questions', 'case-pdf'
+            ];
+        
+            idsToHide.forEach(id => {
+              const el = document.getElementById(id);
+              if (el) el.style.display = 'none';
+            });
+        
+            // Optionally hide tab section and buttons
+            const tabSection = document.getElementById('tab-section');
+            if (tabSection) tabSection.style.display = 'none';
+        
+            const tabButtons = document.querySelector('.tab-buttons');
+            if (tabButtons) tabButtons.style.display = 'none';
+        
+            // Also reset all tab-content blocks (prevent stale state)
+            document.querySelectorAll('.tab-content').forEach(tab => {
+              tab.classList.remove('active');
+              tab.style.display = 'none';
+            });
+        
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+              btn.classList.remove('active');
+            });
+          });
         }
+        
 
     }, 3000);
 });
