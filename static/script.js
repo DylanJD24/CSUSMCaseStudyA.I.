@@ -1,4 +1,4 @@
-let currentQuestionIndex = 0;
+// (Reused) let currentQuestionIndex = 0;
 let currentQuestions = [];
 
 const caseStudyData = [
@@ -1040,3 +1040,178 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }, 3000);
 });
+
+
+
+
+// =================== CASE STUDY PDF EXPORT =================== //
+
+document.addEventListener("DOMContentLoaded", () => {
+    const submitBtn = document.getElementById('submit-question-btn');
+    const downloadBtn = document.getElementById('download-pdf-btn');
+    const answerInput = document.getElementById('user-answer');
+
+    if (submitBtn) submitBtn.addEventListener('click', handleSubmitAnswer);
+    if (downloadBtn) downloadBtn.addEventListener('click', handleDownloadPDF);
+    if (answerInput) answerInput.addEventListener('input', updateWordCount);
+
+    // Load default questions for testing (replace with real loading logic)
+    questions = [
+        "What are the main challenges presented in the case?",
+        "How would you address the client's concerns?",
+        "What strategic recommendation would you make?",
+        "How does the case relate to course material?"
+    ];
+
+    displayQuestion(questions[currentQuestionIndex]);
+    answerInput.disabled = false;
+    submitBtn.disabled = false;
+    downloadBtn.style.display = 'none';
+    answerInput.value = '';
+    updateWordCount();
+});
+
+function displayQuestion(text) {
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.textContent = text;
+}
+
+function handleSubmitAnswer() {
+    const answerInput = document.getElementById('user-answer');
+    const answer = answerInput.value.trim();
+    if (answer === "") return;
+
+    const questionText = questions[currentQuestionIndex];
+    answersList.push({ question: questionText, answer });
+
+    currentQuestionIndex++;
+    answerInput.value = '';
+    updateWordCount();
+
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion(questions[currentQuestionIndex]);
+    } else {
+        answerInput.disabled = true;
+        document.getElementById('submit-question-btn').disabled = true;
+        document.getElementById('download-pdf-btn').style.display = 'inline-block';
+    }
+}
+
+function handleDownloadPDF() {
+    const caseId = document.querySelector('.custom-btn.active')?.dataset.id || 'Unknown';
+
+    fetch('/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            caseId: caseId,
+            answers: answersList
+        })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Case_Study_${caseId}_Answers.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
+    .catch(error => console.error('PDF generation error:', error));
+}
+
+function updateWordCount() {
+    const input = document.getElementById('user-answer').value.trim();
+    const wordCount = input === '' ? 0 : input.split(/\s+/).length;
+    document.getElementById('word-count').textContent = `Words: ${wordCount}`;
+}
+
+
+
+
+// =================== CASE STUDY STATE =================== //
+let currentQuestionIndex = 0;
+let questions = [];
+let answersList = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const submitBtn = document.getElementById('submit-question-btn');
+    const downloadBtn = document.getElementById('download-pdf-btn');
+    const answerInput = document.getElementById('user-answer');
+
+    if (submitBtn) submitBtn.addEventListener('click', handleSubmitAnswer);
+    if (answerInput) answerInput.addEventListener('input', updateWordCount);
+    if (downloadBtn) downloadBtn.addEventListener('click', handleDownloadPDF);
+
+    // Default placeholder questions — replace with your case-specific loading
+    questions = [
+        "What are the main challenges presented in the case?",
+        "How would you address the client's concerns?",
+        "What strategic recommendation would you make?",
+        "How does the case relate to course material?"
+    ];
+
+    displayQuestion(questions[currentQuestionIndex]);
+    answerInput.disabled = false;
+    submitBtn.disabled = false;
+    downloadBtn.style.display = 'none';
+    answerInput.value = '';
+    updateWordCount();
+});
+
+function displayQuestion(text) {
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.textContent = text;
+}
+
+function handleSubmitAnswer() {
+    const answerInput = document.getElementById('user-answer');
+    const answer = answerInput.value.trim();
+    if (answer === "") return;
+
+    const questionText = questions[currentQuestionIndex];
+    answersList.push({ question: questionText, answer });
+
+    currentQuestionIndex++;
+    answerInput.value = '';
+    updateWordCount();
+
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion(questions[currentQuestionIndex]);
+    } else {
+        answerInput.disabled = true;
+        document.getElementById('submit-question-btn').disabled = true;
+        document.getElementById('download-pdf-btn').style.display = 'inline-block';
+    }
+}
+
+function handleDownloadPDF() {
+    const caseId = document.querySelector('.custom-btn.active')?.dataset.id || 'Unknown';
+
+    fetch('/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            caseId: caseId,
+            answers: answersList
+        })
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Case_Study_${caseId}_Answers.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
+    .catch(error => console.error('PDF generation error:', error));
+}
+
+function updateWordCount() {
+    const input = document.getElementById('user-answer').value.trim();
+    const wordCount = input === '' ? 0 : input.split(/\s+/).length;
+    document.getElementById('word-count').textContent = `Words: ${wordCount}`;
+}
