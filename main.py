@@ -3,6 +3,11 @@ from dotenv import load_dotenv
 from flask import Flask, render_template
 from flask_cors import CORS
 
+#reportlab stuff#
+from flask import send_file
+from reportlab.pdfgen import canvas
+from io import BytesIO
+
 load_dotenv()  # Load environment variables from .env
 
 app = Flask(__name__)
@@ -83,6 +88,55 @@ def log_chat():
     
     return jsonify({'status': 'Chat message logged successfully'})
 
+#PDF gen endpoinnt
+
+@app.route('/generate-pdf', methods=['POST'])
+def generate_pdf():
+    print("📥 Received PDF request!")
+    data = request.get_json()
+    answers = data.get('answers', [])
+    case_id = data.get('caseId', 'Unknown Case')
+
+    print(f"📊 Total answers received: {len(answers)}")
+
+    buffer = BytesIO()
+    pdf = canvas.Canvas(buffer)
+    pdf.setTitle(f"Case Study {case_id} - Student Answers")
+
+    y = 800
+    pdf.setFont("Helvetica-Bold", 16)
+    pdf.drawString(50, y, f"Case Study {case_id} - Student Answers")
+    y -= 40
+    pdf.setFont("Helvetica", 12)
+
+    for idx, qa in enumerate(answers, start=1):
+        question = qa.get('question', '').strip()
+        answer = qa.get('answer', '').strip()
+
+        # Wrap text manually if it's too long
+        lines = [f"Q{idx}: {question}", f"A{idx}: {answer}"]
+        for line in lines:
+            wrapped = []
+            while len(line) > 100:
+                wrapped.append(line[:100])
+                line = line[100:]
+            wrapped.append(line)
+
+            for wline in wrapped:
+                if y < 80:
+                    pdf.showPage()
+                    y = 800
+                    pdf.setFont("Helvetica", 12)
+                pdf.drawString(50, y, wline)
+                y -= 20
+        y -= 10  # space between questions
+
+    pdf.save()
+    buffer.seek(0)
+
+    return send_file(buffer, as_attachment=True,
+                     download_name=f"Case_Study_{case_id}_Answers.pdf",
+                     mimetype='application/pdf')
 
 
 if __name__ == "__main__":
