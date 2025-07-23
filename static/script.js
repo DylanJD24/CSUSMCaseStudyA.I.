@@ -296,8 +296,11 @@ function caseStudy5() {
 }
 
 function caseStudy6() {
+  const caseData = caseStudyData.find(cs => cs.id === "6");
+  if (caseData) {
     console.log("Case Study 6 triggered");
-    updateCaseHeader("CASE STUDY 6");
+    updateCaseHeader(caseData.title, caseData);
+  }
 }
 
 function showCurrentQuestion() {
@@ -316,22 +319,27 @@ function showCurrentQuestion() {
 
 
 function typeText(element, fullText, delay = 10) {
-    return new Promise(resolve => {
-      element.innerHTML = '';
+  return new Promise(resolve => {
+    element.innerHTML = '';
+
+    // 👇 Only set display to block if it's currently hidden
+    if (element.style.display === 'none' || getComputedStyle(element).display === 'none') {
       element.style.display = 'block';
-  
-      let i = 0;
-  
-      const interval = setInterval(() => {
-        element.innerHTML += fullText.charAt(i);
-        i++;
-        if (i >= fullText.length) {
-          clearInterval(interval);
-          resolve(); // ✅ done typing
-        }
-      }, delay);
-    });
+    }
+
+    let i = 0;
+
+    const interval = setInterval(() => {
+      element.innerHTML += fullText.charAt(i);
+      i++;
+      if (i >= fullText.length) {
+        clearInterval(interval);
+        resolve();
+      }
+    }, delay);
+  });
 }
+
   
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -376,8 +384,6 @@ function setupTabSwitching() {
 }
 
 
-
-
 function setupChat({ caseId, caseSubtitle, caseContext }) {
   console.log("[setupChat] Running with:", { caseId, caseSubtitle, caseContext });
 
@@ -412,6 +418,16 @@ function setupChat({ caseId, caseSubtitle, caseContext }) {
 
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-context').classList.add('active');
+
+  // ✅ Unhide tab buttons after they were hidden by back arrow
+const tabButtons = document.querySelector('.tab-buttons');
+if (tabButtons) tabButtons.style.display = 'flex';
+
+// ✅ Make sure active tab content is shown
+const activeTab = document.querySelector('.tab-content.active');
+if (activeTab) activeTab.style.display = 'block';
+
+
 }
 
 const textarea = document.getElementById('user-answer');
@@ -588,7 +604,49 @@ document.getElementById('submit-question-btn').addEventListener('click', () => {
 });
 
 
-  
+function hideCaseDetails() {
+  const elementsToHide = [
+    'case-header',
+    'case-subtitle',
+    'case-description',
+    'case-objective',
+    'case-duration',
+    'case-taught-by',
+    'case-format',
+    'case-completion',
+    'case-question-overview',
+    'case-prerequisite',
+    'case-key-topics',
+    'case-questions',
+    'begin-case-btn',
+    'case-pdf',
+    'tab-section'
+  ];
+
+  elementsToHide.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.display = 'none';
+    } else {
+      console.warn(`Element with ID "${id}" not found.`);
+    }
+  });
+
+  // Hide all tab content only if currently visible
+document.querySelectorAll('.tab-content').forEach(el => {
+  if (el.style.display !== 'none') {
+    el.style.display = 'none';
+  }
+});
+
+// Hide the tab buttons only if currently visible
+const tabBtns = document.querySelector('.tab-buttons');
+if (tabBtns && tabBtns.style.display !== 'none') {
+  tabBtns.style.display = 'none';
+}
+
+}
+
   
   
   
@@ -942,10 +1000,11 @@ window.addEventListener('DOMContentLoaded', () => {
             buttonRow.style.display = 'flex';
         }
 
-        document.getElementById('collapsible-wrapper').style.display = 'none';
 
         // hide the back arrow again
         backArrow.style.display = 'none';
+
+        hideCaseDetails();
 
         // ✅ Now inside the click handler
         const header = document.getElementById('case-header');
@@ -959,16 +1018,7 @@ window.addEventListener('DOMContentLoaded', () => {
             subtitle.style.display = 'none';
         }
 
-      // ✅ Hide the tab buttons as well
-const tabButtons = document.querySelector('.tab-buttons');
-if (tabButtons) {
-  tabButtons.style.display = 'none';
-}
-
-// Optionally hide all tab contents too
-document.querySelectorAll('.tab-content').forEach(tab => {
-  tab.style.display = 'none';
-});
+     
 
 
         const context = document.getElementById('case-context');
