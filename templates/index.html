@@ -59,15 +59,20 @@
           <p id="tutor-overview" class="terminal-output-line"></p>
         </div>
       
-        <div class="tab-content" id="tab-questions"> <!-- 👈 MOVED INSIDE -->
-          <div id="question-container" class="terminal-output-line"></div>
-          <div id="question-buttons">
-            <button id="ask-professor-btn">Ask Professor for help</button>
-            <button id="ask-tutor-btn">Ask Tutor for help</button>
-            <button id="submit-question-btn">Submit</button>
-          </div>
-          <textarea id="user-answer" placeholder="Type your answer here..."></textarea>
-            <div id="word-count">Words: 0</div>
+<div class="tab-content" id="tab-questions">
+  <div id="question-container" class="terminal-output-line"></div>
+  <div id="question-buttons">
+    <button id="ask-professor-btn">Ask Professor for help</button>
+    <button id="ask-tutor-btn">Ask Tutor for help</button>
+    <button id="submit-question-btn">Submit</button>
+  </div>
+  
+  <!-- 🟢 Student answer input -->
+  <textarea id="user-answer" placeholder="Type your answer here..."></textarea>
+  <div id="word-count">Words: 0</div>
+
+  <!-- 🟢 Hidden by default, shown at end -->
+  <button id="download-pdf-btn" class="terminal-button" style="display: none;">Download PDF</button>
         </div>
 
     </div>
