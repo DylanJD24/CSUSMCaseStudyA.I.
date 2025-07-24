@@ -734,7 +734,7 @@ function updateCaseHeader(text, caseData) {
           }
         
           console.log("Begin clicked for case:", caseInfo.title);
-          document.body.style.backgroundImage = "url('../static/csbackground6_recolored.png')";
+          document.body.style.backgroundImage = "url('../static/csbackground7.png')";
         
           if (dotsLoader) {
             dotsLoader.style.display = 'flex';
@@ -947,7 +947,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (tabSection) tabSection.style.display = 'none';
 
     setTimeout(() => {
-        document.body.style.backgroundImage = "url('../static/csCasebg_recolored.png')";
+        document.body.style.backgroundImage = "url('../static/csCasebg2.png')";
         
         const spinner = document.querySelector('.spinner');
         if (spinner) {
@@ -1013,7 +1013,7 @@ window.addEventListener('DOMContentLoaded', () => {
          if (backArrow) {
           backArrow.addEventListener('click', () => {
             // Reset background
-            document.body.style.backgroundImage = "url('../static/csCasebg_recolored.png')";
+            document.body.style.backgroundImage = "url('../static/csCasebg2.png')";
         
             // Show button row
             if (buttonRow) buttonRow.style.display = 'flex';
