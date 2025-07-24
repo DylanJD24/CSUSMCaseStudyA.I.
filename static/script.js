@@ -411,29 +411,40 @@ function setupChat({ caseId, caseSubtitle, caseContext }) {
   const contextEl = document.getElementById('case-context');
   const tabSection = document.getElementById('tab-section');
   const tabButtons = document.querySelector('.tab-buttons');
+  const textArea = document.getElementById('user-answer');
+  const submitBtn = document.getElementById('submit-question-btn');
+  const wordCountDisplay = document.getElementById('word-count');
 
   if (dotsLoader) dotsLoader.style.display = 'none';
   if (backArrow) backArrow.style.display = 'block';
 
   // ✅ Fill case context content
   if (contextEl && caseContext) {
-    contextEl.textContent = ''; // clear first
+    contextEl.textContent = '';
     contextEl.textContent = `Case Study\n> ${caseContext}`;
-    contextEl.style.display = 'block'; // ← ensure it's not hidden from earlier flow
+    contextEl.style.display = 'block';
   } else {
     console.warn("[setupChat] ⚠️ Missing context or contextEl");
   }
 
   // ✅ Show tab UI section and buttons
-  if (tabSection) tabSection.style.display = 'block';
-  if (tabButtons) tabButtons.style.display = 'flex';
-  console.log("[setupChat] ✅ Showing tab section");
+  if (tabSection) {
+    tabSection.style.display = 'block';
+  } else {
+    console.warn("[setupChat] ⚠️ Missing #tab-section element");
+  }
+
+  if (tabButtons) {
+    tabButtons.style.display = 'flex';
+  } else {
+    console.warn("[setupChat] ⚠️ Missing .tab-buttons element");
+  }
 
   // ✅ Reset all tab states
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(el => {
     el.classList.remove('active');
-    el.style.display = 'none'; // hide all
+    el.style.display = 'none';
   });
 
   // ✅ Activate only 'context' tab
@@ -443,9 +454,29 @@ function setupChat({ caseId, caseSubtitle, caseContext }) {
   if (contextTabBtn) contextTabBtn.classList.add('active');
   if (contextTabContent) {
     contextTabContent.classList.add('active');
-    contextTabContent.style.display = 'block'; // ensure it's visible
+    contextTabContent.style.display = 'block';
   }
+
+  // ✅ Ensure text area and submit button are reset and visible
+  if (textArea) {
+    textArea.value = '';
+    textArea.style.display = 'block';
+    textArea.disabled = false;
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.style.display = 'inline-block';
+  }
+
+  if (wordCountDisplay) {
+    wordCountDisplay.textContent = 'Words: 0';
+    wordCountDisplay.style.display = 'inline-block';
+  }
+
+  console.log("[setupChat] ✅ Tab UI and input fields reinitialized");
 }
+
 
 
 const textarea = document.getElementById('user-answer');
