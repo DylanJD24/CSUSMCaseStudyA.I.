@@ -1,4 +1,4 @@
-// (Reused) let currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
 let currentQuestions = [];
 
 const caseStudyData = [
@@ -28,6 +28,7 @@ const caseStudyData = [
 
         context: "Youll be happy to know that we made a strong case to management that we should hire a new systems analyst to specialize in ecommerce development, says Al Falfa, a systems analyst for the multioutlet international chain Marathon Vitamin Shops. He is meeting with his large team of systems analysts to decide on the qualifications that their new team member should possess. Al continues, saying, In fact, they were so excited by the possibility of our team helping to move Marathon into an ecommerce strategy that theyve said we should start our search now and not wait until the fall. Ginger Rute, another analyst, agrees, saying, The demand for website developers is still outstripping the supply. We should move quickly. I think our new person should be knowledgeable in system modeling, JavaScript, C++, and Rational Rose and familiar with Ajax, just to name a few. Al looks surprised at Gingers long list of skills but then replies, Well, thats certainly one way we could go. But I would also like to see a person with some business savvy. Most of the people coming out of school will have solid programming skills, but they should know about accounting, inventory, and distribution of goods and services, too. The newest member of the systems analysis group, Vita Ming, finally breaks into the discussion. She says, One of the reasons I chose to come to work with all of you was that I thought we all got along quite well together. Because I had some other opportunities, I looked very carefully at what the atmosphere was here. From what Ive seen, were a friendly group. Lets be sure to hire someone who has a good personality and who fits in well with us. Al concurs, continuing, Vitas right. The new person should be able to communicate well with us, and with business clients, too. We are always communicating in some way, through formal presentations, drawing diagrams, or interviewing users. If they understand decision making, it will make their job easier, too. Also, Marathon is interested in integrating ecommerce into the entire business. We need someone who at least grasps the strategic importance of the Web. Page design is such a small part of it. Ginger interjects again with a healthy dose of practicality, saying, Leave that to management. I still say the new person should be a good programmer. Then she ponders aloud, I wonder how important UML will be? After listening patiently to everyones wish list, one of the senior analysts, Cal Siem, speaks up, joking, Wed better see if Superman is available! As the group shares a laugh, Al sees an opportunity to try for some consensus, saying, Weve had a chance to hear a number of different qualifications. Lets each take a moment and make a list of the qualifications we personally think are essential for the new ecommerce development person to possess. Well share them and continue discussing until we can describe the person in enough detail to turn a description over to the human resources group for processing.",
 
+        caseDialogue: "",
     
         questions: [
           "What qualifications should the systems analysis team prioritize when hiring for this ecommerce role?",
@@ -74,7 +75,9 @@ const caseStudyData = [
 
 Bill Berry read the list and contemplated it for a while. “It is obvious that ecommerce is more complex than I thought,” he says.`,
       
-        questions: [
+caseDialogue: "",        
+
+questions: [
             "Make a list of the elements that are interrelated or interdependent. Then write a paragraph stating why it is critical to monitor these elements closely.",
             "Decide on the boundaries and ultimate scope of the system. Write a paragraph expressing an opinion on which elements are critical for Marathon Vitamin Shops and which elements can be explored at a later date.",
             "Suggest which elements should be handled in-house and which should be outsourced to another company that may be better able to handle the job. Justify your suggestions in two paragraphs, one for the in-house jobs and one for the outsourced tasks."
@@ -103,6 +106,9 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
           "Cost-benefit analysis in IT projects"
       ],
       context: "Elphaba I. Menzel and Glinda K. Chenoweth are the owners of Emerald City Beautyscapes, a commercial landscaping company. They are trying to decide whether to write their own software, perhaps using Microsoft Access as a basis; adopt a COTS software package such as QuickBooks Pro; or hire a service called Lawn Wizards, Inc., to perform all their bookkeeping functions. Elphaba turns to Glinda and asks, “Is it possible for us to create a system of our own?” Glinda replies, “I suppose we could, but it would take forever. We would need to define all our fields, our queries, and our reports. We would need to know who hasn’t paid us yet and how long it has been since we last billed them.” “Yes,” says Elphaba, “and we would also have to create product descriptions, service descriptions, and codes for everything we sell and provide.” “If that were all we needed, we could probably do it,” says Glinda. “But we also need to include a scheduling system. We need to know when we can provide the services to our customers and what to do if we fall behind schedule. Maybe it just isn’t worth it.” “Still,” reflects Glinda, “my mother used to say ‘There’s no place like home.’ Maybe there’s no software like homegrown.” “You see both sides of everything,” remarks Elphaba. “But the path you want to take is too long and risky. We need a software package that is ready for us to use now. I hear that there are products they call commercial off-the-shelf software that we can buy and adapt to our lawn service business. I’ll investigate.” So, Elphaba sets out to look for software that may be suitable. “I’ve found something,” cries Elphaba. “I found this software called QuickBooks Pro at www.quickbooks.intuit.com, and it looks like we can afford it. There are numerous versions of the software already—one for accounting, one for construction, one for health services. Maybe we can find a package that suits us. If not, it looks like we can customize the generic version of QuickBooks Pro to fit our needs. “Our system could grow, too. QuickBooks Pro is readily scalable. We can add customers, suppliers, or products easily. I just wanted to plant the idea of buying a ready-made package on you.” “That’s interesting,” says Glinda, “but I’ve been doing my own research. Some of our competitors have told me they let a company do all the work for them. The company is called Lawn Wizards. They do landscaping, but they also maintain accounts receivable and scheduling packages.” So off they went to see the Wizards. Joel Green, the owner and creator of Lawn Wizards, is proud of his software. “I spent a great deal of time working with my suppliers, that is, nurseries, in the area, and we have developed a coding system for everything,” he brags. “All the trees, sizes of trees, shrubs, flowers, mulch, and even lawn care tools have numbers.  “I started with a small firm, but when customers realized I paid attention to every little detail, my business blossomed.” He adds, “My suppliers love my system because it cuts down on confusion. “I noticed that my competitors were working with the same suppliers but were getting less preferential treatment because they couldn’t communicate about products very effectively. So I decided I would offer my software for hire. I would make money by renting out my software and demand even greater respect from my suppliers. I can even deliver it over the cloud. My end-user license agreement states that I own the software, product codes, and data generated by the system. “Using my unique Wizards software, I can customize the package a bit for the customer, but essentially all the lawn services in the state will be using my database, codes, and B2B features. I maintain my software. If you could see the software code, it would look just like a manicured lawn.” Now Glinda and Elphaba are even more confused than before. They have three distinct options: create a custom package on their own, buy COTS software such as QuickBooks Pro, or outsource their needs to Lawn Wizards. Help them learn the true secret of (software) happiness by helping them articulate the pros and cons of each of their alternatives. What would you recommend? In two paragraphs, write a recommendation that grows out of your consideration of their specific business situation.",
+      
+      caseDialogue: "",
+      
       questions: [
           "What are the main advantages of building custom software for Emerald City Beautyscapes? What are the risks?",
           "What benefits does COTS software like QuickBooks Pro offer compared to custom development?",
@@ -168,6 +174,8 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
       "|                                                              | out. ...................... |\n" +
       "+--------------------------------------------------------------+-----------------------------+\n",
       
+      caseDialogue: "",
+      
       questions: [
           "Critique the tone and urgency of Tennys’ current questionnaire. How might this tone affect responses from spa managers?",
           "Identify at least three improvements to make the questionnaire clearer and easier for managers to complete.",
@@ -200,9 +208,11 @@ Bill Berry read the list and contemplated it for a while. “It is obvious that 
         "Prototype types and testing methods"
       ],
       
-context: "World’s Trend is building a website on which to sell clearance merchandise usually sold through the Web and through its catalog operation. As a newly hired Web consultant, Lincoln Cerf finds himself in a very cold, wintry city, fighting his way through several inches of snow to meet with one of the systems team members, Mary Maye, at World’s Trend headquarters. Mary welcomes Lincoln, saying, “At least the weather doesn’t seem to affect our Web sales! They’re brisk no matter what.” Lincoln groans appreciatively at her weak attempt at humor, smiles, and says, “I gathered from your email last week that you are trying to determine the type of information that needs to be displayed on your clearance website.” Mary replies, “Yes, I’m trying to get it organized in the best possible way. Our customers are all so busy. I know photos of all our merchandise can take a long time to appear on the page if a customer is accessing the Web via a slower modem from home.” Mary continues, saying, “Linc, I’m not even that concerned about how we design our clearance site at this time. I am worried, though, about how much information we need to include on a page. For example, when items are on clearance, not all colors and sizes are available. Which do you think is better, to include some basic information and let the customer click a button to ask for more information, or to be as complete as possible on one page? If I use the linking method, then I could fit more items on the screen...but it might be too orderly. Customers like the look and feel of a sale in which merchandise is kind of jumbled together.” Linc counters her line of thought, saying, “Yeah, I wonder how customers want the information organized. Have you actually watched them use the Web? I mean, do they look for shoes when they buy a suit? If so, should shoes appear on the suit page or be linked in some way?” Mary comments, “Those are my questions, too. Then I wonder if we should just try this approach for men’s clothing before we implement it for women’s clothing. What if men’s and women’s approaches to shopping on the Web are different?” As a third member of the World’s Trend website development group, respond in a brief written report to Lincoln and Mary about whether they should use a prototype to elicit recommendations from potential customers about the proposed website. What type of prototype is appropriate? Consider each form of prototype and explain why each type would apply (or would not apply) to this problem. Devote a paragraph to each explanation.",
+      context: "World’s Trend is building a website on which to sell clearance merchandise usually sold through the Web and through its catalog operation. As a newly hired Web consultant, Lincoln Cerf finds himself in a very cold, wintry city, fighting his way through several inches of snow to meet with one of the systems team members, Mary Maye, at World’s Trend headquarters. Mary welcomes Lincoln, saying, “At least the weather doesn’t seem to affect our Web sales! They’re brisk no matter what.” Lincoln groans appreciatively at her weak attempt at humor, smiles, and says, “I gathered from your email last week that you are trying to determine the type of information that needs to be displayed on your clearance website.” Mary replies, “Yes, I’m trying to get it organized in the best possible way. Our customers are all so busy. I know photos of all our merchandise can take a long time to appear on the page if a customer is accessing the Web via a slower modem from home.” Mary continues, saying, “Linc, I’m not even that concerned about how we design our clearance site at this time. I am worried, though, about how much information we need to include on a page. For example, when items are on clearance, not all colors and sizes are available. Which do you think is better, to include some basic information and let the customer click a button to ask for more information, or to be as complete as possible on one page? If I use the linking method, then I could fit more items on the screen...but it might be too orderly. Customers like the look and feel of a sale in which merchandise is kind of jumbled together.” Linc counters her line of thought, saying, “Yeah, I wonder how customers want the information organized. Have you actually watched them use the Web? I mean, do they look for shoes when they buy a suit? If so, should shoes appear on the suit page or be linked in some way?” Mary comments, “Those are my questions, too. Then I wonder if we should just try this approach for men’s clothing before we implement it for women’s clothing. What if men’s and women’s approaches to shopping on the Web are different?” As a third member of the World’s Trend website development group, respond in a brief written report to Lincoln and Mary about whether they should use a prototype to elicit recommendations from potential customers about the proposed website. What type of prototype is appropriate? Consider each form of prototype and explain why each type would apply (or would not apply) to this problem. Devote a paragraph to each explanation.",
 
-    questions: [
+      caseDialogue: "",
+
+questions: [
       "What type of information needs to be displayed on the clearance website?",
       "Should photos of merchandise be limited due to slow internet connections?",
       "Should basic information with clickable links be used, or should all information appear directly on the page?",
@@ -214,21 +224,21 @@ context: "World’s Trend is building a website on which to sell clearance merch
       "Should a prototype be used to gather customer feedback about the website design?",
       "Which type of prototype (low-fidelity, high-fidelity, horizontal, vertical) is most appropriate for this project?"
   ]
-    },
+},
     {
-      "id": "6",
-      "title": "CASE STUDY 6",
-      "subtitle": "Catching a Summer Code",
-      "description": "This case study explores the challenges faced by a data entry team during the summer months, when temporary workers are brought in and coding systems are changed for ease of use. Students will analyze the effects of altering data standards, consider the long-term consequences of such decisions, and recommend improvements to maintain consistency and accuracy in data management.",
-      "objective": "Evaluate the impact of temporary operational changes on full-time staff, data integrity, and long-term retrieval. Recommend strategies for integrating short-term employees without disrupting workflows or reducing data quality.",
-      "duration": "30–40 minutes",
-      "taughtBy": "Dr. Elena Strauss and Assistant TIA (ALMA)",
-      "format": "Critical thinking prompts and short responses in a guided assistant chat.",
-      "completion": "You’ll finish after submitting structured responses to each question and both instructors provide approval.",
-      "questionOverview": "3 total questions requiring paragraph-length written responses",
-      "prerequisite": "Read Chapter 15",
-      "previewImg": "../static/casestudy6.png",
-      "keyTopics": [
+      id: "6",
+      title: "CASE STUDY 6",
+      subtitle: "Catching a Summer Code",
+      description: "This case study explores the challenges faced by a data entry team during the summer months, when temporary workers are brought in and coding systems are changed for ease of use. Students will analyze the effects of altering data standards, consider the long-term consequences of such decisions, and recommend improvements to maintain consistency and accuracy in data management.",
+      objective: "Evaluate the impact of temporary operational changes on full-time staff, data integrity, and long-term retrieval. Recommend strategies for integrating short-term employees without disrupting workflows or reducing data quality.",
+      duration: "30–40 minutes",
+      taughtBy: "Dr. Elena Strauss and Assistant TIA (ALMA)",
+      format: "Critical thinking prompts and short responses in a guided assistant chat.",
+      completion: "You’ll finish after submitting structured responses to each question and both instructors provide approval.",
+      questionOverview: "3 total questions requiring paragraph-length written responses",
+      prerequisite: "Read Chapter 15",
+      previewImg: "../static/casestudy6.png",
+      keyTopics: [
         "Data entry standards",
         "Short-term staffing impact",
         "Code consistency and retrieval",
@@ -236,8 +246,14 @@ context: "World’s Trend is building a website on which to sell clearance merch
         "System design for scalability",
         "Human error in data operations"
       ],
-      "context": "Vicky takes her fingers off her keyboard and bends over her workstation to verify the letters on the invoices stacked in front of her. \"What on earth?\" Vicky asks aloud as she further scrutinizes the letters that encode cities where orders are to be shipped.\n\nShelly Overseer, her supervisor, who usually sits a couple of workstations away, is passing by and sees Vicky's consternation. \"What's the matter? Did the sales rep forget to write in the city code again?\"\n\nVicky swings around in her chair to face Shelly. \"No, there are codes here, but they're weird. We usually use a three-letter code, right? Like CIN for Cincinnati, SEA for Seattle, MIN for Minneapolis, BUF for Buffalo. They're all five-letter codes here, though.\"\n\n\"Look,\" Vicky says, lifting the invoice to show Shelly. \"CINNC, SEATT, MINNE. It'll take me all day to enter these. No kidding, it's really slowing me down. Maybe there's a mistake. Can't I just use the standard?\"\n\nShelly backs away from Vicky's workstation as if the problem were contagious. Excusing herself apologetically, Shelly says, \"It's the part-timers. They are learning sales now, and management was worried that they'd get messed up on their cities. I think it has something to do with mixing up Newark and New Orleans on the last orders. So, a committee decided to make the cities more recognizable by having them add two letters. Those kids can't learn everything we know overnight, even though they try. It's just until August 19, though, when the part-timers go back to school.\"\n\nAs Vicky glumly turns back to her keyboard, Shelly shakes her head sympathetically and says, \"I know it's a strain and it's making you feel miserable, but don't worry. You'll get over it. It's just a summer code.\"",
-      "questions": [
+
+
+      context: "Vicky takes her fingers off her keyboard and bends over her workstation to verify the letters on the invoices stacked in front of her. \"What on earth?\" Vicky asks aloud as she further scrutinizes the letters that encode cities where orders are to be shipped.\n\nShelly Overseer, her supervisor, who usually sits a couple of workstations away, is passing by and sees Vicky's consternation. \"What's the matter? Did the sales rep forget to write in the city code again?\"\n\nVicky swings around in her chair to face Shelly. \"No, there are codes here, but they're weird. We usually use a three-letter code, right? Like CIN for Cincinnati, SEA for Seattle, MIN for Minneapolis, BUF for Buffalo. They're all five-letter codes here, though.\"\n\n\"Look,\" Vicky says, lifting the invoice to show Shelly. \"CINNC, SEATT, MINNE. It'll take me all day to enter these. No kidding, it's really slowing me down. Maybe there's a mistake. Can't I just use the standard?\"\n\nShelly backs away from Vicky's workstation as if the problem were contagious. Excusing herself apologetically, Shelly says, \"It's the part-timers. They are learning sales now, and management was worried that they'd get messed up on their cities. I think it has something to do with mixing up Newark and New Orleans on the last orders. So, a committee decided to make the cities more recognizable by having them add two letters. Those kids can't learn everything we know overnight, even though they try. It's just until August 19, though, when the part-timers go back to school.\"\n\nAs Vicky glumly turns back to her keyboard, Shelly shakes her head sympathetically and says, \"I know it's a strain and it's making you feel miserable, but don't worry. You'll get over it. It's just a summer code.\"",
+      
+      caseDialogue: "",
+      
+      
+      questions: [
         "What general guidelines of coding has management over- looked in its decision to use a summer code for cities? Make a list of them.",
         "What is the effect on full-time data entry personnel of changing codes for the ease of temporary help? Respond in two paragraphs.",
         "What future impact could the temporary change in codes have on sorting and retrieving data entered during the summer period? Take two paragraphs to discuss these implications.",
@@ -247,7 +263,6 @@ context: "World’s Trend is building a website on which to sell clearance merch
       ]
     }
     
-
 ];
 
 const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
@@ -681,144 +696,115 @@ function updateCaseHeader(text, caseData) {
 
         // ✅ attach listener (safe to add multiple times because it's idempotent)
         beginBtn.onclick = () => {
-
-            const caseInfo = window.activeCaseData;
-  if (caseInfo) {
-    console.log(caseInfo);
-    
-  }
-
-  console.log("Begin clicked for case:", caseInfo.title);
-            document.body.style.backgroundImage = "url('../static/csbackground6_recolored.png')";
-            
-            if (dotsLoader) {
-                dotsLoader.style.display = 'flex';
-            }
-
-            beginBtn.style.display = 'none';
-            backArrow.style.display = 'none';
-            //header.style.display = 'none';
-
-            
-
-            // hide description, objective, and duration sections
-        const desc = document.getElementById('case-description');
-        if (desc) {
-            desc.style.display = 'none';
-        }
-
-        const obj = document.getElementById('case-objective');
-        if (obj) {
-            obj.style.display = 'none';
-        }
-
-        const dur = document.getElementById('case-duration');
-        if (dur) {
-            dur.style.display = 'none';
-        }
-
-        const taught = document.getElementById('case-taught-by');
-        if (taught) {
-         taught.style.display = 'none';
-        }
-
-        const format = document.getElementById('case-format');
-        if (format) {
-             format.style.display = 'none';
-        }
-
-        const completion = document.getElementById('case-completion');
-        if (completion) {
-        completion.style.display = 'none';
-        }
-
-        const overview = document.getElementById('case-question-overview');
-        if (overview) {
-        overview.style.display = 'none';
-        }
-
-        const prerequisite = document.getElementById('case-prerequisite');
-        if (prerequisite) {
-        prerequisite.style.display = 'none';
-        }
-
-        const topics = document.getElementById('case-key-topics');
-        if (topics) {
-                  topics.style.display = 'none';
-        }
-
-            const questions = document.getElementById('case-questions');
-            if (questions) {
-             questions.style.display = 'none';
-            }
-
-        // optionally hide PDF link too
-        const pdf = document.getElementById('case-pdf');
-        if (pdf) {
-            pdf.style.display = 'none';
-        }
-
-        fetch('http://localhost:8080/chat', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    caseId: window.activeCaseData.id,
-    caseSubtitle: window.activeCaseData.subtitle,
-    caseContext: window.activeCaseData.context
-  }) 
-})
-.then(res => res.json())
-.then(data => {
-  const almaMessage = data.profReply;
-  const tiaMessage = data.tutorPrompt;
-
-  // Step 1: Assign raw text (quietly, no animation)
-  document.getElementById('prof-overview').textContent = `Professor\n> ${almaMessage}`;
-  document.getElementById('tutor-overview').textContent = `Tutor\n> ${tiaMessage}`;
-
-  // Step 2: Set up tabs FIRST (hides others)
-  document.getElementById('tab-section').style.display = 'block';
-
-  // Show only context tab by default
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('[data-tab="context"]').classList.add('active');
-
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-context').classList.add('active');
-
-  // Step 3: Animate case context only
-  setupChat({
-    caseId: window.activeCaseData.id,
-    caseSubtitle: window.activeCaseData.subtitle,
-    caseContext: window.activeCaseData.context
-  });
-
-  // 👇 NEW: load questions
-currentQuestions = window.activeCaseData.questions || [];
-currentQuestionIndex = 0;
-
-  // Optionally initialize tab switching
-  setupTabSwitching();
-
-  // Chain second fetch
-  return fetch('http://localhost:8080/log-chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ logMessage: data.reply })
-  });
-
-                
-
-            
-          })
-          .then(res => res.json())
-          .then(logData => {
-            console.log("Chat log saved:", logData);
-          })
-          .catch(err => console.error("Error in chat chain:", err));
+          const caseInfo = window.activeCaseData;
         
+          if (caseInfo) {
+            console.log(caseInfo);
+          }
         
+          console.log("Begin clicked for case:", caseInfo.title);
+          document.body.style.backgroundImage = "url('../static/csbackground6_recolored.png')";
+        
+          if (dotsLoader) {
+            dotsLoader.style.display = 'flex';
+          }
+        
+          beginBtn.style.display = 'none';
+          backArrow.style.display = 'none';
+        
+          // Hide various content blocks
+          const elementsToHide = [
+            'case-description',
+            'case-objective',
+            'case-duration',
+            'case-taught-by',
+            'case-format',
+            'case-completion',
+            'case-question-overview',
+            'case-prerequisite',
+            'case-key-topics',
+            'case-questions',
+            'case-pdf'
+          ];
+        
+          elementsToHide.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+          });
+        
+          // ✅ Conditional fetch: only if no dialogue exists
+          if (!caseInfo.caseDialogue || caseInfo.caseDialogue.trim() === "") {
+            fetch('http://localhost:8080/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                caseId: caseInfo.id,
+                caseSubtitle: caseInfo.subtitle,
+                caseContext: caseInfo.context
+              })
+            })
+              .then(res => res.json())
+              .then(data => {
+                const almaMessage = data.profReply;
+                const tiaMessage = data.tutorPrompt;
+                const caseDialogue = data.caseDialogue;
+        
+                // 🔄 Save to global case object
+                caseInfo.caseDialogue = caseDialogue;
+        
+                // 🧠 Display assistant overviews
+                document.getElementById('prof-overview').textContent = `Professor\n> ${almaMessage}`;
+                document.getElementById('tutor-overview').textContent = `Tutor\n> ${tiaMessage}`;
+        
+                // 🗂️ Setup UI tabs and context
+                setupChat({
+                  caseId: caseInfo.id,
+                  caseSubtitle: caseInfo.subtitle,
+                  caseContext: caseDialogue
+                });
+        
+                currentQuestions = caseInfo.questions || [];
+                currentQuestionIndex = 0;
+        
+                setupTabSwitching();
+        
+                return fetch('http://localhost:8080/log-chat', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ logMessage: data.reply })
+                });
+              })
+              .then(res => res.json())
+              .then(logData => {
+                console.log("Chat log saved:", logData);
+              })
+              .catch(err => console.error("Error in chat chain:", err));
+          } else {
+            // ✅ Reuse cached content if it exists
+            console.log("🎯 Using cached caseDialogue");
+        
+            setupChat({
+              caseId: caseInfo.id,
+              caseSubtitle: caseInfo.subtitle,
+              caseContext: caseInfo.caseDialogue
+            });
+        
+            currentQuestions = caseInfo.questions || [];
+            currentQuestionIndex = 0;
+        
+            setupTabSwitching();
+        
+            // Restore UI tab state manually
+            document.getElementById('tab-section').style.display = 'block';
+        
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-tab="context"]').classList.add('active');
+        
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-context').classList.add('active');
+          }
         };
+        
           
         
     }
@@ -1040,178 +1026,3 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }, 3000);
 });
-
-
-
-
-// =================== CASE STUDY PDF EXPORT =================== //
-
-document.addEventListener("DOMContentLoaded", () => {
-    const submitBtn = document.getElementById('submit-question-btn');
-    const downloadBtn = document.getElementById('download-pdf-btn');
-    const answerInput = document.getElementById('user-answer');
-
-    if (submitBtn) submitBtn.addEventListener('click', handleSubmitAnswer);
-    if (downloadBtn) downloadBtn.addEventListener('click', handleDownloadPDF);
-    if (answerInput) answerInput.addEventListener('input', updateWordCount);
-
-    // Load default questions for testing (replace with real loading logic)
-    questions = [
-        "What are the main challenges presented in the case?",
-        "How would you address the client's concerns?",
-        "What strategic recommendation would you make?",
-        "How does the case relate to course material?"
-    ];
-
-    displayQuestion(questions[currentQuestionIndex]);
-    answerInput.disabled = false;
-    submitBtn.disabled = false;
-    downloadBtn.style.display = 'none';
-    answerInput.value = '';
-    updateWordCount();
-});
-
-function displayQuestion(text) {
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.textContent = text;
-}
-
-function handleSubmitAnswer() {
-    const answerInput = document.getElementById('user-answer');
-    const answer = answerInput.value.trim();
-    if (answer === "") return;
-
-    const questionText = questions[currentQuestionIndex];
-    answersList.push({ question: questionText, answer });
-
-    currentQuestionIndex++;
-    answerInput.value = '';
-    updateWordCount();
-
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion(questions[currentQuestionIndex]);
-    } else {
-        answerInput.disabled = true;
-        document.getElementById('submit-question-btn').disabled = true;
-        document.getElementById('download-pdf-btn').style.display = 'inline-block';
-    }
-}
-
-function handleDownloadPDF() {
-    const caseId = document.querySelector('.custom-btn.active')?.dataset.id || 'Unknown';
-
-    fetch('/generate-pdf', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            caseId: caseId,
-            answers: answersList
-        })
-    })
-    .then(response => response.blob())
-    .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Case_Study_${caseId}_Answers.pdf`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-    })
-    .catch(error => console.error('PDF generation error:', error));
-}
-
-function updateWordCount() {
-    const input = document.getElementById('user-answer').value.trim();
-    const wordCount = input === '' ? 0 : input.split(/\s+/).length;
-    document.getElementById('word-count').textContent = `Words: ${wordCount}`;
-}
-
-
-
-
-// =================== CASE STUDY STATE =================== //
-let currentQuestionIndex = 0;
-let questions = [];
-let answersList = [];
-
-document.addEventListener("DOMContentLoaded", () => {
-    const submitBtn = document.getElementById('submit-question-btn');
-    const downloadBtn = document.getElementById('download-pdf-btn');
-    const answerInput = document.getElementById('user-answer');
-
-    if (submitBtn) submitBtn.addEventListener('click', handleSubmitAnswer);
-    if (answerInput) answerInput.addEventListener('input', updateWordCount);
-    if (downloadBtn) downloadBtn.addEventListener('click', handleDownloadPDF);
-
-    // Default placeholder questions — replace with your case-specific loading
-    questions = [
-        "What are the main challenges presented in the case?",
-        "How would you address the client's concerns?",
-        "What strategic recommendation would you make?",
-        "How does the case relate to course material?"
-    ];
-
-    displayQuestion(questions[currentQuestionIndex]);
-    answerInput.disabled = false;
-    submitBtn.disabled = false;
-    downloadBtn.style.display = 'none';
-    answerInput.value = '';
-    updateWordCount();
-});
-
-function displayQuestion(text) {
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.textContent = text;
-}
-
-function handleSubmitAnswer() {
-    const answerInput = document.getElementById('user-answer');
-    const answer = answerInput.value.trim();
-    if (answer === "") return;
-
-    const questionText = questions[currentQuestionIndex];
-    answersList.push({ question: questionText, answer });
-
-    currentQuestionIndex++;
-    answerInput.value = '';
-    updateWordCount();
-
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion(questions[currentQuestionIndex]);
-    } else {
-        answerInput.disabled = true;
-        document.getElementById('submit-question-btn').disabled = true;
-        document.getElementById('download-pdf-btn').style.display = 'inline-block';
-    }
-}
-
-function handleDownloadPDF() {
-    const caseId = document.querySelector('.custom-btn.active')?.dataset.id || 'Unknown';
-
-    fetch('/generate-pdf', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            caseId: caseId,
-            answers: answersList
-        })
-    })
-    .then(response => response.blob())
-    .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Case_Study_${caseId}_Answers.pdf`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-    })
-    .catch(error => console.error('PDF generation error:', error));
-}
-
-function updateWordCount() {
-    const input = document.getElementById('user-answer').value.trim();
-    const wordCount = input === '' ? 0 : input.split(/\s+/).length;
-    document.getElementById('word-count').textContent = `Words: ${wordCount}`;
-}
