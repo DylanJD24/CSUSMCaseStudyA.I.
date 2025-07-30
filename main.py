@@ -122,7 +122,7 @@ You are a formatting assistant. Transform the case study into a script that ONLY
 - Character names
 - Spoken dialogue
 
-Do **not** include narration, internal thoughts, instructions, summaries, or analysis. Do not include any asterisks ** in your answer.
+Do **not** include narration, internal thoughts, instructions, summaries, or analysis. Do not include any asterisks ** in your answer. Do not use word for word repetition of the case study.
 
 Keep it simple and readable, as if it were a movie script the student is observing. The dialogue should cover all details within the case study. And do not put ** before or after the actor's name.
 
@@ -180,9 +180,9 @@ def ask_prof_for_help():
     
     "{question}"
 
-    Please respond with a supportive and insightful academic answer. 
-    Keep your reply under 150 words, and give actionable guidance or examples if helpful.
-    Use a kind and intelligent tone.
+    Please reply in a friendly, easy-to-understand tone. 
+    Give useful hints, examples, or questions to guide the student’s thinking.
+    Your message should be under 150 words, encouraging but not giving away the full answer.
     """
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
