@@ -265,6 +265,8 @@ questions: [
     
 ];
 
+let isLight = true;
+
 const caseStudies = [caseStudy1, caseStudy2, caseStudy3, caseStudy4, caseStudy5, caseStudy6];
 
 
@@ -326,9 +328,10 @@ function showCurrentQuestion() {
   }
 
   const question = currentQuestions[currentQuestionIndex];
-  container.innerText = `Q${currentQuestionIndex + 1}: ${question}`;
-  submitBtn.disabled = true; 
+  container.innerText = `Q${currentQuestionIndex + 1}: ${question.text}`;
+  document.getElementById('submit-question-btn').disabled = true;
 }
+
 
 
 
@@ -404,6 +407,11 @@ function setupChat({ caseId, caseSubtitle, caseContext }) {
 
   // Remove background
   document.body.style.backgroundImage = 'none';
+
+  const lightBtn = document.getElementById('light-toggle');
+if (lightBtn) {
+  lightBtn.style.display = 'block';
+}
 
   // Elements
   const dotsLoader = document.querySelector('.dots-loader');
@@ -527,7 +535,7 @@ document.getElementById('ask-professor-btn').addEventListener('click', () => {
   })
   .then(res => res.json())
   .then(data => {
-    container.textContent += `\n\n> Professor\n\n> ${data.reply}`;
+    container.textContent += `\n\n> Professor\n${data.reply}`;
 
     // ✅ Chain log-question call
     return fetch('http://localhost:8080/log-question', {
@@ -593,7 +601,7 @@ document.getElementById('ask-tutor-btn').addEventListener('click', () => {
   })
   .then(res => res.json())
   .then(data => {
-    container.textContent += `\n\n> Tutor\n> ${data.reply}\n>`;
+    container.textContent += `\n\n> Tutor\n${data.reply}`;
 
     return fetch('http://localhost:8080/log-question', {
       method: 'POST',
@@ -628,29 +636,85 @@ submitBtn.disabled = currentText.length === 0;
 });
 
 
-
-
 document.getElementById('submit-question-btn').addEventListener('click', () => {
+  const answerInput = document.getElementById('user-answer');
+  const answer = answerInput.value.trim();
+
+  if (answer) {
+    currentQuestions[currentQuestionIndex].userAnswer = answer; // ✅ store answer in object
+  }
+
   console.log("Submitting answer for:", currentQuestions[currentQuestionIndex]);
 
-  // Advance to the next question if available
   if (currentQuestionIndex < currentQuestions.length - 1) {
-    document.getElementById('user-answer').value = ''; // ✅ Clear textarea
-    const wordCountEl = document.getElementById('word-count');
-    const submitBtn = document.getElementById('submit-question-btn');
-    submitBtn.disabled = true;               
-    wordCountEl.textContent = 'Word Count: 0'; 
+    // ✅ Advance to next question
+    answerInput.value = '';
+    document.getElementById('word-count').textContent = 'Word Count: 0';
+    document.getElementById('submit-question-btn').disabled = true;
     currentQuestionIndex++;
     showCurrentQuestion();
   } else {
+    // ✅ All questions complete
     document.getElementById('question-container').innerText = "> All questions completed!";
-    document.getElementById('question-buttons').style.display = 'none'; // Optionally hide buttons
-
-      // ✅ Hide the textarea and word count when done
-      document.getElementById('user-answer').style.display = 'none';
-      document.getElementById('word-count').style.display = 'none';
+    document.getElementById('download-pdf-btn').style.display = 'inline-block';
+    document.getElementById('question-buttons').style.display = 'none';
+    answerInput.style.display = 'none';
+    document.getElementById('word-count').style.display = 'none';
   }
 });
+
+
+document.getElementById('download-pdf-btn').addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const caseInfo = window.activeCaseData;
+  const title = caseInfo?.title || "Case Study";
+  const subtitle = caseInfo?.subtitle || "";
+
+  const safeTitle = title.replace(/[^\x00-\x7F]/g, '');
+  const safeSubtitle = subtitle.replace(/[^\x00-\x7F]/g, '');
+
+  let y = 20;
+  doc.setFont('helvetica', 'normal'); // ✅ avoid emoji issues
+  doc.setFontSize(14);
+
+  doc.text(safeTitle, 10, y);
+  y += 8;
+  doc.setFontSize(12);
+  doc.text(safeSubtitle, 10, y);
+  y += 10;
+
+  currentQuestions.forEach((q, index) => {
+    const questionText = q.text || `Question ${index + 1}`;
+    const answer = q.userAnswer?.trim() || "(No answer provided)";
+
+    const wrappedQ = doc.splitTextToSize(`${index + 1}. ${questionText}`, 180);
+    wrappedQ.forEach(line => {
+      doc.text(line, 10, y);
+      y += 6;
+    });
+
+    const wrappedA = doc.splitTextToSize(`Answer: ${answer}`, 180);
+    wrappedA.forEach(line => {
+      doc.text(line, 10, y);
+      y += 6;
+    });
+
+    y += 8;
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  doc.save(`${safeTitle.replace(/\s+/g, '_')}_Answers.pdf`);
+});
+
+
+
+
+
 
 
 function hideCaseDetails() {
@@ -727,6 +791,11 @@ function updateCaseHeader(text, caseData) {
 
         // ✅ attach listener (safe to add multiple times because it's idempotent)
         beginBtn.onclick = () => {
+          const lightBtn = document.getElementById('light-toggle');
+if (lightBtn) {
+  lightBtn.style.display = 'none';
+}
+
           const caseInfo = window.activeCaseData;
         
           if (caseInfo) {
@@ -734,7 +803,14 @@ function updateCaseHeader(text, caseData) {
           }
         
           console.log("Begin clicked for case:", caseInfo.title);
-          document.body.style.backgroundImage = "url('../static/csbackground7.png')";
+          if (isLight) {
+            // light mode bg
+            document.body.style.backgroundImage = "url('../static/csbackground10.png')";
+          } else {
+            // dark mode bg
+            document.body.style.backgroundImage = "url('../static/csbackground7.png')";
+          }
+          
         
           if (dotsLoader) {
             dotsLoader.style.display = 'flex';
@@ -794,7 +870,10 @@ function updateCaseHeader(text, caseData) {
                   caseContext: caseDialogue
                 });
         
-                currentQuestions = caseInfo.questions || [];
+                currentQuestions = (caseInfo.questions || []).map(q => ({
+                  text: q,
+                  userAnswer: ''
+                }));
                 currentQuestionIndex = 0;
         
                 setupTabSwitching();
@@ -947,7 +1026,20 @@ window.addEventListener('DOMContentLoaded', () => {
   if (tabSection) tabSection.style.display = 'none';
 
     setTimeout(() => {
+
+      if (isLight) {
+        // light mode bg
+        document.body.style.backgroundImage = "url('../static/csCasebg3.png')";
+      } else {
+        // dark mode bg
         document.body.style.backgroundImage = "url('../static/csCasebg2.png')";
+      }
+        
+
+        const lightBtn = document.querySelector('.light-btn');
+        if(lightBtn) {
+          lightBtn.style.display = 'block';
+        }
         
         const spinner = document.querySelector('.spinner');
         if (spinner) {
@@ -1013,7 +1105,12 @@ window.addEventListener('DOMContentLoaded', () => {
          if (backArrow) {
           backArrow.addEventListener('click', () => {
             // Reset background
-            document.body.style.backgroundImage = "url('../static/csCasebg2.png')";
+            if(isLight){
+              document.body.style.backgroundImage = "url('../static/csCasebg3.png')";
+            } else {
+              document.body.style.backgroundImage = "url('../static/csCasebg2.png')";
+            }
+            
         
             // Show button row
             if (buttonRow) buttonRow.style.display = 'flex';
@@ -1056,4 +1153,212 @@ window.addEventListener('DOMContentLoaded', () => {
         
 
     }, 3000);
+});
+
+const toggleBtn = document.getElementById('light-toggle');
+const customBtns = document.querySelectorAll('.custom-btn');
+const caseHeader = document.getElementById('case-header');
+const subtitleHeader = document.getElementById('case-subtitle');
+
+toggleBtn.addEventListener('click', () => {
+  const body = document.body;
+  const loadingText = document.querySelector('.loading-text');
+  // Get current background image (returns: url("..."))
+  const currentBg = body.style.backgroundImage;
+
+  if (isLight) {
+    // 🌙 Switch to dark mode
+    toggleBtn.textContent = '🌙 Dark Mode';
+
+    //toggleBtn.body.color
+    body.style.backgroundColor = 'black';
+    if (loadingText) loadingText.style.color = 'white';
+     // 🔄 Background image switch (light → dark)
+     if (currentBg.includes("csCasebg3.png")) {
+      body.style.backgroundImage = "url('../static/csCasebg2.png')";
+    }
+
+    toggleBtn.addEventListener('mouseenter', () => {
+      toggleBtn.style.color = 'blue';
+    });
+    toggleBtn.addEventListener('mouseleave', () => {
+      toggleBtn.style.color = 'red'; // restore dark mode color
+    });
+
+    customBtns.forEach(btn => {
+      
+        btn.style.color = 'red'; // restore to your preferred default
+      
+    });
+
+    customBtns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        btn.style.color = 'blue';
+      });
+    
+      btn.addEventListener('mouseleave', () => {
+        btn.style.color = 'red'; // restore to your preferred default
+      });
+    });
+
+
+    caseHeader.style.color = 'white';
+    subtitleHeader.style.color = 'white';
+
+    const description = document.getElementById('case-description');
+if (description) description.style.color = 'white';
+
+const objective = document.getElementById('case-objective');
+if (objective) objective.style.color = 'white';
+
+const duration = document.getElementById('case-duration');
+if (duration) duration.style.color = 'white';
+
+const taughtBy = document.getElementById('case-taught-by');
+if (taughtBy) taughtBy.style.color = 'white';
+
+const format = document.getElementById('case-format');
+if (format) format.style.color = 'white';
+
+const completion = document.getElementById('case-completion');
+if (completion) completion.style.color = 'white';
+
+const overview = document.getElementById('case-question-overview');
+if (overview) overview.style.color = 'white';
+
+const topics = document.getElementById('case-key-topics');
+if (topics) topics.style.color = 'white';
+
+const questions = document.getElementById('case-questions');
+if (questions) questions.style.color = 'white';
+
+const prerequisite = document.getElementById('case-prerequisite');
+if (prerequisite) prerequisite.style.color = 'white';
+
+const pdf = document.getElementById('case-pdf');
+if (pdf) pdf.style.color = 'white';
+
+
+const caseContext = document.getElementById('case-context');
+if (caseContext) caseContext.style.color = 'white';
+
+const profOverview = document.getElementById('prof-overview');
+if (profOverview) profOverview.style.color = 'white';
+
+const tutorOverview = document.getElementById('tutor-overview');
+if (tutorOverview) tutorOverview.style.color = 'white';
+
+const questionContainer = document.getElementById('question-container');
+if(questionContainer) questionContainer.style.color = 'white';
+
+const wordCount = document.getElementById('word-count');
+if(wordCount) wordCount.style.color = 'white';
+
+const loaderDots = document.querySelectorAll('.dots-loader div');
+loaderDots.forEach(dot => {
+  dot.style.backgroundColor = 'white'; // Or any other color you want
+});
+
+
+  } else {
+    // ☀️ Switch to light mode
+    toggleBtn.textContent = '☀️ Light Mode';
+    
+    toggleBtn.addEventListener('mouseenter', () => {
+      toggleBtn.style.color = 'red';
+    });
+    toggleBtn.addEventListener('mouseleave', () => {
+      toggleBtn.style.color = 'blue'; // restore dark mode color
+    });
+
+    
+    
+    body.style.backgroundColor = '#FDFEFF';
+    if (loadingText) loadingText.style.color = 'black';
+    // 🔄 Background image switch (dark → light)
+    if (currentBg.includes("csCasebg2.png")) {
+      body.style.backgroundImage = "url('../static/csCasebg3.png')";
+    }
+
+    caseHeader.style.color = 'black';
+    subtitleHeader.style.color = 'black';
+
+    const description = document.getElementById('case-description');
+if (description) description.style.color = 'black';
+
+const objective = document.getElementById('case-objective');
+if (objective) objective.style.color = 'black';
+
+const duration = document.getElementById('case-duration');
+if (duration) duration.style.color = 'black';
+
+const taughtBy = document.getElementById('case-taught-by');
+if (taughtBy) taughtBy.style.color = 'black';
+
+const format = document.getElementById('case-format');
+if (format) format.style.color = 'black';
+
+const completion = document.getElementById('case-completion');
+if (completion) completion.style.color = 'black';
+
+const overview = document.getElementById('case-question-overview');
+if (overview) overview.style.color = 'black';
+
+const topics = document.getElementById('case-key-topics');
+if (topics) topics.style.color = 'black';
+
+const questions = document.getElementById('case-questions');
+if (questions) questions.style.color = 'black';
+
+const prerequisite = document.getElementById('case-prerequisite');
+if (prerequisite) prerequisite.style.color = 'black';
+
+const pdf = document.getElementById('case-pdf');
+if (pdf) pdf.style.color = 'black';
+
+
+const caseContext = document.getElementById('case-context');
+if (caseContext) caseContext.style.color = 'black';
+
+const profOverview = document.getElementById('prof-overview');
+if (profOverview) profOverview.style.color = 'black';
+
+const tutorOverview = document.getElementById('tutor-overview');
+if (tutorOverview) tutorOverview.style.color = 'black';
+
+const questionContainer = document.getElementById('question-container');
+if(questionContainer) questionContainer.style.color = 'black';
+
+const wordCount = document.getElementById('word-count');
+if(wordCount) wordCount.style.color = 'black';
+
+
+customBtns.forEach(btn => {
+      
+  btn.style.color = 'blue'; // restore to your preferred default
+
+});
+
+
+customBtns.forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    btn.style.color = 'red';
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    btn.style.color = 'blue'; // restore to your preferred default
+  });
+});
+
+const loaderDots = document.querySelectorAll('.dots-loader div');
+loaderDots.forEach(dot => {
+  dot.style.backgroundColor = 'black'; // Or any other color you want
+});
+
+
+
+  }
+
+  // Flip the mode
+  isLight = !isLight;
 });
