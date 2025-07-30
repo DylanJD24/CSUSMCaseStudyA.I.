@@ -12,6 +12,8 @@
     
 </head>
 <body>
+  <button id="light-toggle" class="light-btn">☀️ Light Mode</button>
+
     <div class="dots-loader">
         <span class="loading-text">Loading</span>
         <div></div>
@@ -34,7 +36,7 @@
 
     <div id="case-header"></div>
 
-    <div id="case-header"></div>
+   
     <div id="case-subtitle"></div> <!-- New subtitle element -->
 
     <div id="tab-section" style="display: none;">
@@ -59,20 +61,15 @@
           <p id="tutor-overview" class="terminal-output-line"></p>
         </div>
       
-<div class="tab-content" id="tab-questions">
-  <div id="question-container" class="terminal-output-line"></div>
-  <div id="question-buttons">
-    <button id="ask-professor-btn">Ask Professor for help</button>
-    <button id="ask-tutor-btn">Ask Tutor for help</button>
-    <button id="submit-question-btn">Submit</button>
-  </div>
-  
-  <!-- 🟢 Student answer input -->
-  <textarea id="user-answer" placeholder="Type your answer here..."></textarea>
-  <div id="word-count">Words: 0</div>
-
-  <!-- 🟢 Hidden by default, shown at end -->
-  <button id="download-pdf-btn" class="terminal-button" style="display: none;">Download PDF</button>
+        <div class="tab-content" id="tab-questions"> <!-- 👈 MOVED INSIDE -->
+          <div id="question-container" class="terminal-output-line"></div>
+          <div id="question-buttons">
+            <button id="ask-professor-btn">Ask Professor for help</button>
+            <button id="ask-tutor-btn">Ask Tutor for help</button>
+            <button id="submit-question-btn">Submit</button>
+          </div>
+          <textarea id="user-answer" placeholder="Type your answer here..."></textarea>
+            <div class="word-count" id="word-count">Words: 0</div>
         </div>
 
     </div>
@@ -89,11 +86,18 @@
     <div id="case-prerequisite"></div>
     <div id="case-pdf"></div>
 
-    <button id="begin-case-btn">Begin Case Study</button>
+    <button id="begin-case-btn">> Begin Case Study</button>
+
+
+    <button id="download-pdf-btn">Download Case Study PDF 📄</button>
 
 
 
       
     <script src="../static/script.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
 </body>
 </html>
