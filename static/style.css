@@ -1,8 +1,8 @@
 body {
-    background-image: url('csbackground7.png'); /* relative to the CSS file itself */
+    background-image: url('csbackground10.png'); /* relative to the CSS file itself */
     background-size: cover;
     background-size: 60%;
-    background-color: black;
+    background-color: #FDFEFF;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
@@ -14,10 +14,11 @@ body {
   height: 120px;
   margin: 1rem;
   padding: 0.5rem;
-  background-color: black;
-  color: white;
-  border: 1px solid white;
-  font-family: 'Share Tech Mono', monospace;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
   font-size: 1rem;
   resize: vertical;
   line-height: 1.6;
@@ -47,9 +48,10 @@ body {
 
 #word-count {
   margin-left: 1rem;
-  font-family: 'Share Tech Mono', monospace;
-  color: white;
-  font-size: 0.95rem;
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+  font-size: large;
+  margin-bottom: 40px;
 }
 
 
@@ -68,7 +70,7 @@ body {
   .dots-loader div {
     width: 14px;
     height: 14px;
-    background-color: white;
+    background-color: black;
     border-radius: 50%;
     animation: bounce 1.2s infinite;
   }
@@ -92,8 +94,9 @@ body {
 
 .loading-text {
   font-family: 'Orbitron', sans-serif;
-  color: white;
+  color: black;
   font-size: 3.4rem;
+  letter-spacing: 0.1em;
 }
 
   .button-row {
@@ -111,16 +114,15 @@ body {
 
 .custom-btn {
    /* initially hidden */
-   font-family: 'Share Tech Mono', monospace;
+   font-family: 'Orbitron', sans-serif;
     width: 100px;
     height: 100px;
     line-height: 100px;
     text-align: center;
-    font-size: 40px;
-
-    background-color: black;
-    color: white;
-    
+    font-size: 70px;
+    background-color: transparent;
+    color: blue;
+    border: 2px solid transparent;
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s ease;
@@ -130,10 +132,31 @@ body {
 
 .custom-btn:hover {
   
-    border: 2px solid white;
+  background-color: transparent;
+  color: red;
+  border: 2px solid transparent;
 }
 
-  
+#download-pdf-btn {
+  width: 300px;
+  height: 60px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  display: none;
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  cursor: pointer;
+  text-align: center;
+  /* ➕ Add spacing from the left edge */
+  margin-left: 40px;
+}
+
+#download-pdf-btn:hover {
+  background-color: black;
+  color: white;
+}
+ 
   
 .back-arrow {
   font-family: 'Share Tech Mono', monospace;
@@ -145,23 +168,24 @@ body {
   width: 100px;
   height: 60px;
   font-size: 50px;
-  background-color: black;
-  color: white;
-
+  background-color: white;
+    color: black;
+    border: 2px solid black;
   cursor: pointer;
  
 }
 
 .back-arrow:hover {
-  
-    border: 2px solid white;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+    
 }
 
 #case-header {
   display: none;
   font-family: 'Orbitron', sans-serif;
-  color: white;
-  
+  color: black;
   font-size: 100px;
   text-align: center;
   margin-top: 25px;
@@ -170,15 +194,15 @@ body {
 #case-subtitle {
   display: none;
   font-family: 'Orbitron', sans-serif;
-  color: white;
-  font-size: 1.5rem;
+  color: black;
+  font-size: 1.75rem;
   text-align: center;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
+  margin-bottom: -0.5rem;
+  letter-spacing: 0.15em;
 }
 
 #begin-case-btn {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Orbitron', sans-serif;
   display: none; /* hidden by default */
   position: absolute;
   top: 90%;
@@ -186,7 +210,7 @@ body {
   transform: translateX(-50%);
   background-color: white;
   color: black;
-  border: 2px solid white;
+  border: 2px solid black;
   padding: 15px 30px;
   font-size: 24px;
   cursor: pointer;
@@ -197,7 +221,7 @@ body {
 #begin-case-btn:hover {
   background-color: black;
   color: white;
-  border-color: white;
+  border: 2px solid white;
 }
 
 #case-description,
@@ -212,32 +236,35 @@ body {
 #case-prerequisite,
 #case-pdf {
   display: none;
-  font-family: 'Share Tech Mono', monospace;
-  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: large;
+  color: black;
   margin: 1rem;
   padding: 0.5rem;
+  letter-spacing: 0.10em;
 }
 
 .terminal-button {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Orbitron', sans-serif;
   background-color: white;
   color: black;
   padding: 0.5rem 1rem;
   text-decoration: none;
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: -0.5rem;
   font-weight: bold;
   border-radius: 4px;
-  border: 2px solid white;
+  border: 2px solid black;
 }
 
 .terminal-button:hover {
   background-color: black;
   color: white;
+  border: 2px solid white;
   padding: 0.5rem 1rem;
   text-decoration: none;
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: -0.5rem;
   font-weight: bold;
   border-radius: 4px;
 }
@@ -255,6 +282,7 @@ body {
 #case-pdf a {
   white-space: pre;
   overflow-x: hidden;
+  
   
 }
 
@@ -287,8 +315,10 @@ body {
   width: 95%;
   height: 40%;
   /* REMOVE: display: none; */
-  font-family: 'Share Tech Mono', monospace;
-  color: white;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: large;
+  color: black;
   margin: 1rem;
   padding: 0.5rem;
   white-space: pre-wrap;
@@ -300,20 +330,33 @@ body {
   display: flex;
   gap: 0.5rem;
   margin: 1rem;
+  margin-top: 2.5rem;
 }
 
 .tab-btn {
-  font-family: 'Share Tech Mono', monospace;
-  background-color: black;
-  color: white;
-  border: 1px solid white;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: medium;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
+
 .tab-btn.active {
-  background-color: white;
-  color: black;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.tab-btn:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
 }
 
 .tab-content {
@@ -326,8 +369,10 @@ body {
 
 #question-container {
   width: 95%;
-  font-family: 'Share Tech Mono', monospace;
-  color: white;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+  color: black;
+  font-size: large;
   margin: 1rem;
   padding: 0.5rem;
   white-space: pre-wrap;
@@ -341,18 +386,21 @@ body {
 }
 
 #question-buttons button {
-  font-family: 'Share Tech Mono', monospace;
-  background-color: black;
-  color: white;
-  border: 1px solid white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: medium;
+  letter-spacing: 0.1em;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 #question-buttons button:hover {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
 }
 
 
@@ -366,7 +414,7 @@ body {
 .collapsible-toggle {
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-family: 'Courier New', Courier, monospace;
   cursor: pointer;
   font-size: 1.5rem;
@@ -379,3 +427,29 @@ body {
   text-decoration: underline;
 }
 
+
+.light-btn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: x-large;
+  background-color: transparent;
+  color: blue;
+  border: 2px solid transparent;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.light-btn:hover {
+  background-color: transparent;
+  color: red;
+  border: 2px solid transparent;
+}
+
+.custom-dark-hover:hover {
+  background-color: white;
+  color: black;
+}
