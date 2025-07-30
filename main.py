@@ -1,21 +1,5 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template
-from flask_cors import CORS
-
-load_dotenv()  # Load environment variables from .env
-
-app = Flask(__name__)
-CORS(app)
-
-# Serve the homepage
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-
-import os
-from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from openai import OpenAI, APIError, RateLimitError
